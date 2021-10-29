@@ -1,0 +1,29 @@
+
+
+.array-container{
+    display: flex;
+    align-items: flex-start;
+    margin: 20px;
+    padding: 5px;  
+    height: 500px;
+}
+
+.array-bar{
+    background:#65f;
+    margin:0px 2px;    
+}
+
+
+
+.control{
+    display: flex;
+    background: rgb(8, 247, 255);
+    border: 1px solid #000f;
+    justify-content: space-around;
+    padding: 7px;
+}
+
+button{
+    height: 40px;
+    width: 150px;
+}
