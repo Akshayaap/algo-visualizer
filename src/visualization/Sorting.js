@@ -16,6 +16,7 @@ export default class Sorting extends Component {
         this.mergeSort.bind(this);
         this.merge.bind(this);
         this.isSorted.bind(this);
+        this.timer.bind(this);
     }
     componentDidMount() {
         this.resetArray();
@@ -28,7 +29,7 @@ export default class Sorting extends Component {
 
 
 
-
+    timer = ms => new Promise(res => setTimeout(res, ms))
     testAlgo = () => {
         let array = [];
         let iterations = 1000;
@@ -49,20 +50,15 @@ export default class Sorting extends Component {
     }
 
 
-    async mergeSort(array, start, end) {
-        // setTimeout(() => {
+    mergeSort(array, start, end) {
+        setTimeout(()=>{
             if (start < end) {
                 let mid = Math.floor((start + end) / 2);
-
-
                 this.mergeSort(array, start, mid);
                 this.mergeSort(array, mid + 1, end);
                 this.merge(array, start, mid, end);
-
-            }
-        // }, 10
-        // );
-
+            }}
+            ,200);
     }
 
     async merge(array, start, mid, end) {
@@ -75,23 +71,26 @@ export default class Sorting extends Component {
             right.push(array[i]);
         }
         let k = start, i = 0, j = 0;
-        while (k <= end && i < left.length && j < right.length) {
+        while (i < left.length && j < right.length) {
             if (left[i] < right[j]) {
                 array[k++] = left[i++];
             }
             else {
                 array[k++] = right[j++];
             }
+            this.setState({ array: array, test: this.state.test });
         }
 
-        while(i<left.length){
-            array[k++]=left[i++];
+        while (i < left.length) {
+            array[k++] = left[i++];
+            this.setState({ array: array, test: this.state.test });
         }
-        while(j<right.length){
-            array[k++]=right[j++];
+        while (j < right.length) {
+            array[k++] = right[j++];
+
         }
 
-        this.setState({ array: array, test: this.state.test });
+
         console.log("fuck");
 
 
@@ -124,7 +123,7 @@ export default class Sorting extends Component {
                 <div className="array-container">
                     {
                         this.state.array.map((value, index) => (
-                            <div className="array-bar" key={index} style={{ height: `${value}px`, width: `${1200 / this.size - 2}px` }}>
+                            <div className="array-bar" key={index} style={{ height: `${value}px`, width: `${1200 / this.size - 1}px` }}>
                             </div>
                         )
                         )}
