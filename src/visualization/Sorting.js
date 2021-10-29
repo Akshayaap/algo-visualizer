@@ -10,6 +10,7 @@ export default class Sorting extends Component {
             array: [],
             test: false
         }
+        this.counter=1;
         this.size = props.size;
         this.resetArray.bind(this);
         this.testAlgo.bind(this);
@@ -25,6 +26,7 @@ export default class Sorting extends Component {
     resetArray = () => {
         let array = createRandomArray(this.size);
         this.setState({ array: array, test: false });
+        console.log(this.state.array);
     }
 
 
@@ -58,7 +60,7 @@ export default class Sorting extends Component {
                 this.mergeSort(array, mid + 1, end);
                 this.merge(array, start, mid, end);
             }}
-            ,200);
+            ,200*this.counter++);
     }
 
     async merge(array, start, mid, end) {
@@ -135,7 +137,7 @@ export default class Sorting extends Component {
                     <button>
                         Sort
                     </button>
-                    <button onClick={() => { this.mergeSort(this.state.array, 0, this.size - 1); this.isSorted(this.state.array); console.log(this.state.array); }}>
+                    <button onClick={() => { this.mergeSort(this.state.array, 0, this.size - 1); this.isSorted(this.state.array);}}>
                         Merge Sort
                     </button>
                     <button>
