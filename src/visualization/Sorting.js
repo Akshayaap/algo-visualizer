@@ -10,17 +10,12 @@ export default class Sorting extends Component {
             array: [],
             test: false
         }
-        this.size=props.size;
+        this.size = props.size;
         this.resetArray.bind(this);
         this.testAlgo.bind(this);
         this.mergeSort.bind(this);
         this.merge.bind(this);
-        this.delay.bind(this);
         this.isSorted.bind(this);
-    }
-
-    delay=(ms)=>{
-        new Promise(res => setTimeout(res, ms));
     }
     componentDidMount() {
         this.resetArray();
@@ -28,7 +23,7 @@ export default class Sorting extends Component {
 
     resetArray = () => {
         let array = createRandomArray(this.size);
-        this.setState({ array: array,test: false });
+        this.setState({ array: array, test: false });
     }
 
 
@@ -41,7 +36,7 @@ export default class Sorting extends Component {
             array = createRandomArray(1000);
             this.mergeSort(array, 0, array.length - 1);
             if (!this.isSorted(array)) {
-                this.setState({array:this.state.array, test: false });
+                this.setState({ array: this.state.array, test: false });
                 return false;
             }
         }
@@ -54,20 +49,23 @@ export default class Sorting extends Component {
     }
 
 
-    async mergeSort  (array, start, end) {
-        if (start < end) {
-            let mid = Math.floor((start + end) / 2);
-            
-            this.mergeSort(array, start, mid);
-            this.mergeSort(array, mid + 1, end);
-            this.merge(array, start, mid, end);
-            this.setState({ array: array,  test: this.state.test });
-            
-        }
-        this.setState({ array: array,  test: this.state.test });
+    async mergeSort(array, start, end) {
+        // setTimeout(() => {
+            if (start < end) {
+                let mid = Math.floor((start + end) / 2);
+
+
+                this.mergeSort(array, start, mid);
+                this.mergeSort(array, mid + 1, end);
+                this.merge(array, start, mid, end);
+
+            }
+        // }, 10
+        // );
+
     }
 
-    async merge  (array, start, mid, end) {
+    async merge(array, start, mid, end) {
         let left = [];
         let right = [];
         for (let i = start; i <= mid; i++) {
@@ -77,7 +75,7 @@ export default class Sorting extends Component {
             right.push(array[i]);
         }
         let k = start, i = 0, j = 0;
-        while (k <= end) {
+        while (k <= end && i < left.length && j < right.length) {
             if (left[i] < right[j]) {
                 array[k++] = left[i++];
             }
@@ -85,28 +83,40 @@ export default class Sorting extends Component {
                 array[k++] = right[j++];
             }
         }
-       // await this.delay(200);
-        
-    }
 
-
-
-
-    isSorted  =(array)=> {
-
-    for (let i = 1; i < array.length; i++) {
-        if (array[i] < array[i - 1]) {
-            this.setState({array:this.state.array,test:false});
-            
-            return;
-            break;
-            
+        while(i<left.length){
+            array[k++]=left[i++];
         }
-        console.log(i);
+        while(j<right.length){
+            array[k++]=right[j++];
+        }
+
+        this.setState({ array: array, test: this.state.test });
+        console.log("fuck");
+
+
+        // await this.delay(200);
+
     }
-    this.setState({array:this.state.array,test:true});
-    return ;
-}
+
+
+
+
+    isSorted = (array) => {
+
+        for (let i = 1; i < array.length; i++) {
+            if (array[i] < array[i - 1]) {
+                this.setState({ array: this.state.array, test: false });
+
+                return;
+                break;
+
+            }
+            console.log(i);
+        }
+        this.setState({ array: this.state.array, test: true });
+        return;
+    }
 
     render() {
         return (
@@ -120,19 +130,19 @@ export default class Sorting extends Component {
                         )}
                 </div>
                 <div className="control">
-                    <button onClick={()=>{this.resetArray();}}>
+                    <button onClick={() => { this.resetArray(); console.log(this.state.array) }}>
                         Generate new
                     </button>
                     <button>
                         Sort
                     </button>
-                    <button onClick={() => { this.mergeSort(this.state.array, 0, this.size - 1);this.isSorted(this.state.array);}}>
+                    <button onClick={() => { this.mergeSort(this.state.array, 0, this.size - 1); this.isSorted(this.state.array); console.log(this.state.array); }}>
                         Merge Sort
                     </button>
                     <button>
                         Quick Sort
                     </button>
-                    <button className={(this.state.test ? "bg-success" : "bg-danger") + " text-white"} onClick={()=>this.isSorted(this.state.array)}>
+                    <button className={(this.state.test ? "bg-success" : "bg-danger") + " text-white"} onClick={() => this.isSorted(this.state.array)}>
                         isSorted
                     </button>
                 </div>
