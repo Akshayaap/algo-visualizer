@@ -105,7 +105,6 @@ export default class Sorting extends Component {
 
 
     async bubbleSort(array) {
-
         await setInterval(() => {
             if (this.i > 0) {
                 if (this.j < this.i) {
@@ -114,21 +113,19 @@ export default class Sorting extends Component {
                         array[this.j] = array[this.j + 1];
                         array[this.j + 1] = temp;
                     }
-                    this.setState({ array: array, test: this.state.test });
+                    this.setState({ array: array, test: this.isSorted(array) });
                     this.j++;
                 } else {
                     this.j = 0;
                     this.i--;
                 }
                 this.bubbleSort(array);
-                this.setState({ array: array, test: this.state.test });
             }
             else {
-                this.setState({ array: array, test: this.state.test });
                 return;
             }
-        }, 250);
-
+        }, 100);
+        this.setState({ array: array, test: this.isSorted(array) });
     }
 
     isSorted = (array) => {
@@ -159,7 +156,8 @@ export default class Sorting extends Component {
                     </button>
                     <button onClick={() => {
                         this.i = this.size - 1;
-                        this.j = 0; this.bubbleSort(this.state.array); console.log(this.state.array)
+                        this.j = 0; 
+                        this.bubbleSort(this.state.array);
                     }}>
                         Sort
                     </button>
@@ -187,8 +185,13 @@ const createRandomArray = (size) => {
     var array = [];
     for (var i = 0; i < size; i++) {
         array.push(randomIntFromInterval(5, 500));
-
     }
+    // array.push(500);
+    // array.push(400);
+    // array.push(300);
+    // array.push(200);
+    // array.push(100);
+    
     return array;
 }
 

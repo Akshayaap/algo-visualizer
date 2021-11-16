@@ -4,7 +4,7 @@ import Sorting from './visualization/Sorting';
 function App() {
   return (
     <div className="App">
-      <Sorting size="150"/>
+      <Sorting size="50"/>
     </div>
   );
 }
