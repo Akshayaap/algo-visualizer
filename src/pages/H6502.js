@@ -27900,7 +27900,7 @@ const H6502 = (props) => (
             </g>
         </svg>
         <div className='abstract'>
-            <button onClick={DemoSim}>Fuck Em</button>
+            <button onClick={DemoSim}>Star Sim</button>
         </div>
     </div>
 )

@@ -94,6 +94,7 @@ export class ChessSim {
     }
 
     move(i1, j1, i2, j2) {
+        this.board.move(i1, j1, i2, j2);
         this.boardUI[i2][j2].src = this.boardUI[i1][j1].src;
         this.boardUI[i1][j1].src = '...';
         this.boardUI[i2][j2].style.display = 'block';
@@ -123,6 +124,7 @@ export class ChessSim {
                 //this.boardBack[x][y].style.backgroundColor = '#ff0000ff';
                 break;
             case State.CHOOSEN:
+
                 if (this.state.chX == x && this.state.chY == y) {
                     this.clearState();
                     break;
@@ -177,6 +179,7 @@ export class ChessBoard {
         this.attack = this.attack.bind(this);
         this.getPiece = this.getPiece.bind(this);
         this.update = this.update.bind(this);
+        this.move = this.move.bind(this);
     }
 
     reset() {
@@ -228,10 +231,6 @@ export class ChessBoard {
         }
     }
 
-    attack(x1, y1, x2, y2) {
-        this.board[x1][y1].attack(x2, y2);
-        this.update();
-    }
 
     getPiece(x, y) {
         return this.boardx[x][y];
@@ -243,6 +242,13 @@ export class ChessBoard {
                 this.board[i][j].update();
             }
         }
+    }
+
+    move(i1, j1, i2, j2) {
+        this.board[i2][j2] = this.board[i1][j1].piece;
+        this.board[i1][j1].piece = null;
+        this.board[i2][j2].piece.x = i2;
+        this.board[i2][j2].piece.y = j2;
     }
 
 }
@@ -332,4 +338,21 @@ export class Queen extends Piece {
 
 export class King extends Piece {
 
+}
+
+export class Player {
+    constructor(board, white) {
+        this.white = white; //true if white, false if black
+        this.pieces = [];
+        this.board = board;
+
+        //initialize with all pieces
+        for (let i = 0; i < 8; i++) {
+            for (let j = 0; j < 8; j++) {
+                if (this.board.board[i][j].piece != null) {
+                    this.pieces.push(this.board.board[i][j].piece);
+                }
+            }
+        }
+    }
 }
