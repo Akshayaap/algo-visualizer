@@ -1,0 +1,25 @@
+.chess {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 83vh;
+    width: 100%;
+}
+
+.board {
+    width: 644px;
+    height: 644px;
+    border: #000000 solid 2px;
+}
+
+.box-white {
+    width: 80px;
+    height: 80px;
+    background: #ffffff;
+}
+
+.box-black {
+    width: 80px;
+    height: 80px;
+    background: #666666;
+}

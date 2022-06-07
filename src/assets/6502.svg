@@ -1,0 +1,876 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="svg2" xmlSpace="preserve" height={4500} width={4700} {...props}>
+    <title id="title6502">{"6502 block diagram"}</title>
+    <defs id="defs6">
+        <marker style={{ overflow: "visible" , }} id="Arrow2Sstart" refX={0} refY={0} orient="auto">
+            <path id="pth0" style={{ strokeWidth: 0.75, fill: "#000" , }} d="m-1.35 0 3.275-1.2c-.5.7-.5 1.7 0 2.4z" />
+        </marker>
+        <marker style={{ overflow: "visible" , }} id="Arrow2Send" refX={0} refY={0} orient="auto">
+            <path id="pth1" style={{ strokeWidth: 0.75, fill: "#000" , }} d="m1.35 0-3.275 1.2c.5-.7.5-1.7 0-2.4z" />
+        </marker>
+        <marker style={{ overflow: "visible" , }} id="Arrow2Send-2" refX={0} refY={0} orient="auto">
+            <path id="pth1-1" style={{ fill: "#000" , strokeWidth: 0.75, }} d="m1.35 0-3.275 1.2c.5-.7.5-1.7 0-2.4z" />
+        </marker>
+        <marker style={{ overflow: "visible" , }} id="Arrow2Send-3" refX={0} refY={0} orient="auto">
+            <path id="pth1-11" style={{ fill: "#000" , strokeWidth: 0.75, }} d="m1.35 0-3.275 1.2c.5-.7.5-1.7 0-2.4z" />
+        </marker>
+    </defs>
+    <style type="text/css" id="style8">
+        {
+            "@font-face{font-family:Latin Modern Mono Caps;src:url(https://blogfonts.com/fonts/l/991/64991/file/lmmonocaps10-regular.otf) format(woff)}.pressed{fill:#a00000}.busd{stroke-width:24}.pwr{fill:#f8c090;stroke-width:5}.gnd{fill:#8ab864}.padd{fill:#e6e6e6}.flagd,.reg{fill:#fea}.flagd{stroke-width:4}.latch{fill:#ffe6d5}.box{fill:#f4eed7}path.smallarrow{stroke:#000;stroke-width:4;marker-end:url(#Arrow2Send)}path.arrow{stroke-width:3;stroke-miterlimit:8}path.dbf{fill:#b03030}path.adlf{fill:#50a0d8}path.adhf{fill:#1000b0}path.sbf{fill:#ff8080}path.dbiof{fill:#b64800}path.rdy{stroke:#e88000;stroke-width:12}path.pad{fill:#000}path{fill:none}"
+        }
+    </style>
+    <g id="Base">
+        <path id="detail" className="diag"
+            onClick="document.getElementById('Text-detail').classList.toggle('hide'),document.getElementById('Text-dpc').classList.toggle('hide'),this.classList.toggle('pressed')"
+            style={{ stroke: "none" , }} d="M300 100h40v40h-40z" />
+    </g>
+    <g id="Buses-diag">
+        <g id="data-io" className="busd" style={{ stroke: "#b84800" , }}>
+            <path id="pth2" d="M1584 100h948" />
+            <path id="pth3" d="M4296 137h60v723h-276" />
+            <path id="pth4" className="dbiof arrow" d="m4065 860 28 32-6-32 6-32z" />
+            <path id="pth5" className="dbiof arrow" d="m1565 100 28 32-6-32 6-32z" />
+            <path id="pth6" d="M3414 400V275" />
+            <path id="pth7" className="dbiof arrow" d="m3414 258-32 28 32-6 32 6z" />
+        </g>
+        <g id="adl-diag" className="busd" style={{ stroke: "#50a0d8" , }}>
+            <path id="pth9" d="m2755 3361-28-32 6 32-6 32z" className="adlf arrow" />
+            <path id="pth11" d="m2755 1338-28-32 6 32-6 32z" className="adlf arrow" />
+            <path id="pth16"
+                d="M2675 3623v79m-103-81v106m184-112h-184v-637m511-434h-511m0-1365h186m-22 159h-165m163 2023h-162V973h184" />
+            <path id="pth17" d="m2675 3721 32-28-32 6-32-6z" className="adlf arrow" />
+            <path id="pth18" d="M2675 3993v57" />
+            <path id="pth19" d="m2675 4064 32-28-32 6-32-6z" className="adlf arrow" />
+        </g>
+        <g id="db-diag" className="busd" style={{ stroke: "#b03030" , }}>
+            <path id="pth22" d="m2673 602-32 28 32-6 32 6z" className="dbf arrow" />
+            <path id="pth23" d="m2966 3266 32-28-32 6-32-6z" className="dbf arrow" />
+            <path id="pth25" d="m2497 907 28 32-6-32 6-32z" className="dbf arrow" />
+            <path id="pth30" d="m2836 3066 32-28-32 6-32-6z" className="dbf arrow" />
+            <path id="pth32"
+                d="M2489 841h271m-77 1069h80m73 1135v-42m-160-904h81m-78-824h81m-79 444h76m-243-812h242m-82-293v2384h292v250" />
+            <path id="pth33" d="M2836 3245v-44" />
+            <path id="pth34" d="m2836 3266 32-28-32 6-32-6z" className="dbf arrow" />
+        </g>
+        <g id="adh-diag" className="busd" style={{ stroke: "#1000b0" , }}>
+            <path id="pth36" d="M4327 1448v86" />
+            <path id="pth37" d="m4329 1552 32-28-32 6-32-6z" className="adhf arrow" />
+            <path id="pth39" d="m4065 1651 28 32-6-32 6-32z" className="adhf arrow" />
+            <path id="pth41" d="m4293 1172 32-28-32 6-32-6z" className="adhf arrow" />
+            <path id="pth42" d="M4057 1713h79m-56-60h54.5m2-560H4293v58m-84 238h-77m-71-425h74v951l-80.922 1.132" />
+        </g>
+        <g id="sb-diag" className="busd" style={{ stroke: "#ff8080" , }}>
+            <path id="pth45" d="m4065 3359 28 32-6-32 6-32z" className="sbf arrow" />
+            <path id="pth47" d="m4065 3525 28 32-6-32 6-32z" className="sbf arrow" />
+            <path id="pth50" d="m4065 3718 28 32-6-32 6-32z" className="sbf arrow" />
+            <path id="pth53" d="m4065 3911 28 32-6-32 6-32z" className="sbf arrow" />
+            <path id="pth57" d="m4065 2321 28 32-6-32 6-32z" className="sbf arrow" />
+            <path id="pth58"
+                d="M4060.5 2393h75.5m-56-72h56m0 225v-560h-75.5m0 111h75.5m-56 1814h56m0-109h-75.5m19.5-84h56m-75.5-107h75.5m-56-86h56m-56-166h56m-401-815h401v1451h-75.5" />
+            <path id="pth101-7" d="M3990 2229.5v50" />
+            <path id="pth57-3" d="m3989.5 2211.5-32 28 32-6 32 6z" className="sbf arrow" />
+        </g>
+        <g id="prog-ctrl-connect" className="busd" style={{ stroke: "#000" , }}>
+            <path id="pth77-3" className="nrdy"
+                d="M1430 2957h61m-27-720h26M238 2011h932m288-854h32m-32 412h152m-152-702h152m-118 1148v2430H725m766-576h119m-119-332h119m-153-1522h35V635h-357V440h-35"
+                style={{ stroke: "#f60" , strokeWidth: 12, }} />
+            <path id="pth77-0" d="M140 599v-66h1470" className="ovfl" style={{ stroke: "#d6b" , strokeWidth: 12, }} />
+            <path id="pth77-1" className="rw" d="M140 253v254h2422m-1036 0v1595h-66" style={{ stroke: "#803380" ,
+                strokeWidth: 12, }} />
+            <path id="pth77-4" className="adlo" d="M1464 2315h62v1784" style={{ stroke: "navy" , strokeWidth: 12, }} />
+            <path id="pth77-5" className="t1"
+                d="M1563 1627h44m-46 1332h46m-45 1339V1020h45m-14 3280H725m837-3280V582h-215.334V480.001" style={{
+                stroke: "#008066" , strokeWidth: 12, }} />
+            <path id="pth59" d="m574 173 32-28-32 6-32-6z" className="pad arrow" />
+            <path id="pth60" d="M574 149v-49h591" />
+            <path id="pth61" d="M495 4190v39" />
+            <path id="pth62" d="M1295 4170v59" />
+            <path id="pth63" d="M575 480v71" />
+            <path id="pth64" d="M983 480v69" />
+            <path id="pth65" d="M1315 1340v41" />
+            <path id="pth66" d="M1107 803h60" />
+            <path id="pth67" d="M1107 1161h60" />
+            <path id="pth68" d="M1107 1571h60" />
+            <path id="pth69" d="M1107 2317h60" />
+            <path id="pth70" d="M1107 2803h60" />
+            <path id="pth71" d="M1427 807h185" />
+            <path id="pth72" d="M1467 2803h145" />
+            <path id="pth73" d="M1107.5 369.5h55" />
+            <path id="pth74" d="M1559.5 369.5h59" />
+            <path id="pth75" d="M1107 3111h500" />
+            <path id="pth76" d="M1107 3599h500" />
+            <path id="pth77" d="M1107 3789h504" />
+            <path id="pth78" d="M1107 2171h500" />
+            <path id="pth79" d="M1107 1817h500" />
+            <path id="pth80" style={{ stroke: "navy" , }} d="M1463 4105h688" />
+            <path id="pth81" d="m2168 1615-28-32 6 32-6 32z" className="pad arrow" />
+            <path id="pth82" d="m2168 1270-28-32 6 32-6 32z" className="pad arrow" />
+            <path id="pth83" d="m2168 2273-28-32 6 32-6 32z" className="pad arrow" />
+            <path id="pth84" d="m2168 2975-28-32 6 32-6 32z" className="pad arrow" />
+            <path id="pth85" d="m2168 3601-28-32 6 32-6 32z" className="pad arrow" />
+            <path id="pth86" d="m2168 4105-28-32 6 32-6 32z" className="pad arrow" style={{ fill: "navy" ,
+                stroke: "navy" , }} />
+            <path id="pth87" d="M2087 2975h62" />
+            <path id="pth88" d="M2087 3601h62" />
+            <path id="pth89" d="M2087 2275h62" />
+            <path id="pth90" d="M2087 1615h62" />
+            <path id="pth91" d="M2087 1270h62" />
+            <path id="pth92" d="M1835 1334v35" />
+            <path id="pth93" d="M1835 3430v47" />
+            <path id="pth94" d="M1835 3980v119" style={{ stroke: "navy" , }} />
+            <path id="pth63-3" d="M137 1058v32" />
+            <path id="pth63-3-5" d="M133 1758v26" />
+            <path id="pth63-3-5-3" d="M133 3808v32" />
+            <path id="pth63-3-5-3-5" d="M133 4228v32" />
+            <path id="pth59-1" d="m574 569 32-28-32 6-32-6z" className="pad arrow" />
+            <path id="pth59-1-9" d="m982 569 32-28-32 6-32-6z" className="pad arrow" />
+            <path id="pth59-1-6" d="m495 4169 32 28-32-6-32 6z" className="pad arrow" />
+        </g>
+        <g id="datapath-connect" style={{ stroke: "#000" , strokeWidth: 24, }}>
+            <path id="pth95" className="pad arrow" d="m3982 3268 32-28-32 6-32-6z" />
+            <path id="pth96" d="M3982 3245v-44" />
+            <path id="pth97" className="pad arrow" d="m3622 3204.5 32 28-32-6-32 6z" />
+            <path id="pth98" d="M3622 3223.5v44" />
+            <path id="pth99" className="pad arrow" d="m3188 3204.5 32 28-32-6-32 6z" />
+            <path id="pth100" d="M3188 3223.5v44" />
+            <path id="pth101" d="M3410 2619.5v178" />
+            <path id="pth102" className="pad arrow" d="m3410 2600.5 32 28-32-6-32 6z" />
+            <path id="pth103" d="M3412 4214v45" />
+            <path id="pth103-3" d="M4397.5 3162.5h65" />
+            <path id="pth103-3-5" d="M4397.5 1644.5h65" />
+        </g>
+    </g>
+    <g id="Regions" style={{ stroke: "#000" , strokeWidth: 8, }}>
+        <g id="misc-pads">
+            <path id="r-power" className="pwr" style={{ strokeWidth: 8, }} d="M1874 4180h240v300h-240z" />
+            <path id="r-ground1" className="gnd" d="M25 2180h220v300H25z" />
+            <path id="r-ground2" className="gnd" d="M4460 2180h220v300h-220z" />
+            <path id="r-sync" className="padd" d="M1594 4260h220v220h-220z" />
+            <path id="r-rwpad" className="padd" d="M25 30h220v220H25z" />
+            <path id="r-sopad" className="padd" d="M25 600h220v220H25z" />
+            <path id="r-cp0pad" className="padd" d="M25 840h220v220H25z" />
+            <path id="r-clockgen" className="box" d="M40 1090h190v420H40z" />
+            <path id="r-resetpad" className="padd" d="M25 1538h220v220H25z" />
+            <path id="r-resetf" className="flagd" d="M90 1785h90v90H90z" />
+            <path id="r-rdy" className="padd" d="M25 1898h220v220H25z" />
+            <path id="r-cp2" className="padd" d="M25 2713h220v220H25z" />
+            <path id="r-cp1" className="padd" d="M25 3036h220v220H25z" />
+            <path id="r-irqpad" className="padd" d="M25 3840h220v220H25z" />
+            <path id="r-irqf" className="flagd" d="M90 3720h90v90H90z" />
+            <path id="r-nmipad" className="padd" d="M25 4260h220v220H25z" />
+            <path id="r-nmif" className="flagd" d="M90 4140h90v90H90z" />
+        </g>
+        <g id="data-pads" style={{ fill: "#ffb080" , strokeWidth: 5, }}>
+            <path id="r-d0" d="M2530 30h220v220h-220z" />
+            <path id="r-d1" d="M2751 30h220v220h-220z" />
+            <path id="r-d2" d="M2972 30h220v220h-220z" />
+            <path id="r-d3" d="M3193 30h220v220h-220z" />
+            <path id="r-d4" d="M3414 30h220v220h-220z" />
+            <path id="r-d5" d="M3635 30h220v220h-220z" />
+            <path id="r-d6" d="M3856 30h220v220h-220z" />
+            <path id="r-d7" d="M4077 30h220v220h-220z" />
+        </g>
+        <g id="addr-pads" style={{ fill: "#c0c0ff" , strokeWidth: 5, }}>
+            <path id="r-a0" d="M2530 4260h220v220h-220z" />
+            <path id="r-a1" d="M2751 4260h220v220h-220z" />
+            <path id="r-a2" d="M2972 4260h220v220h-220z" />
+            <path id="r-a3" d="M3193 4260h220v220h-220z" />
+            <path id="r-a4" d="M3414 4260h220v220h-220z" />
+            <path id="r-a5" d="M3635 4260h220v220h-220z" />
+            <path id="r-a6" d="M3856 4260h220v220h-220z" />
+            <path id="r-a7" d="M4077 4260h220v220h-220z" />
+            <path id="r-a8" d="M4460 3789h220v420h-220z" />
+            <path id="r-a9" d="M4460 3368h220v420h-220z" />
+            <path id="r-a10" d="M4460 2947h220v420h-220z" />
+            <path id="r-a11" d="M4460 2526h220v420h-220z" />
+            <path id="r-a12" d="M4460 1721h220v420h-220z" />
+            <path id="r-a13" d="M4460 1300h220v420h-220z" />
+            <path id="r-a14" d="M4460 879h220v420h-220z" />
+            <path id="r-a15" d="M4460 460h220v420h-220z" />
+        </g>
+        <g id="r-prog-ctrl">
+            <path id="r-pla" style={{ fill: "#d7d7f4" , }} d="M280 570h830v3600H280z" />
+            <path id="r-IReg" className="reg" d="M280 180h550v300H280z" />
+            <path id="r-t0-1" className="box" d="M850 180h260v300H850z" />
+            <path id="r-t0" className="flagd" d="M868 374h90v90h-90z" />
+            <path id="r-t2-5" className="box" d="M280 4230h455v250H280z" />
+            <path id="r-t2" className="flagd" d="M304 4324.5h90v90h-90z" />
+            <path id="r-t3" className="flagd" d="M410 4324.5h90v90h-90z" />
+            <path id="r-t4" className="flagd" d="M515 4324.5h90v90h-90z" />
+            <path id="r-t5" className="flagd" d="M621 4324.5h90v90h-90z" />
+            <path id="r-predecode" className="box" d="M1160 30h400v450h-400z" />
+            <path id="r-flagset" className="box" d="M1160 690h310v250h-310z" />
+            <path id="r-tm/w" className="box" d="M1160 980h310v360h-310z" />
+            <path id="r-tm" className="flagd" d="M1270 1100h90v90h-90z" />
+            <path id="r-treset" className="box" d="M1160 1380h310v390h-310z" />
+            <path id="r-rdyrw" className="box" d="M1160 1860h310v270h-310z" />
+            <path id="r-rrw" className="flagd" d="M1270 1988h90v90h-90z" />
+            <path id="r-adloutput" className="box" d="M1160 2210h310v230h-310z" />
+            <path id="r-rcc" className="box" d="M1160 2480h310v570h-310z" />
+            <path id="r-rccf" className="flagd" d="M1270 2760h90v90h-90z" />
+            <path id="r-B" className="box" d="M1160 3180h310v260h-310z" />
+            <path id="r-Bf" className="flagd" d="M1270 3240h90v90h-90z" />
+            <path id="r-set-int-addr" className="box" d="M1160 3840h310v330h-310z" />
+            <path id="r-resg" className="flagd" d="M1270 3900h90v90h-90z" />
+            <path id="r-int-ctrl" className="box" d="M780 4230h690v250H780z" />
+            <path id="r-nmil" className="flagd" d="M818 4324.5h90v90h-90z" />
+            <path id="r-nmig" className="flagd" d="M964 4324.5h90v90h-90z" />
+            <path id="r-intg" className="flagd" d="M1208 4324.5h90v90h-90z" />
+            <path id="r-br-flags-prog-ctrl" className="box" d="M1610 180h880v930h-400v230h-480z" />
+            <path id="r-Nf" className="flagd" d="M2360 340h90v90h-90z" />
+            <path id="r-Zf" className="flagd" d="M2360 540h90v90h-90z" />
+            <path id="r-Df" className="flagd" d="M2090 440h90v90h-90z" />
+            <path id="r-Vf" className="flagd" d="M2090 670h90v90h-90z" />
+            <path id="r-Cf" className="flagd" d="M2090 900h90v90h-90z" />
+            <path id="r-If" className="flagd" d="M1840 730h90v90h-90z" />
+            <path id="r-brcf" className="flagd" d="M1840 980h90v90h-90z" />
+            <path id="r-bfwf" className="flagd" d="M1650 390h90v90h-90z" />
+            <path id="r-T1S" className="flagd" d="M1650 980h90v90h-90z" />
+            <path id="r-pc-ctrl" className="box" d="M1610 1370h480v500h-480z" />
+            <path id="r-pgx" className="box" d="M1610 1910h480v190h-480z" />
+            <path id="r-pxc" className="flagd" d="M1810 1940h90v90h-90z" />
+            <path id="r-abus" className="box" d="M1610 2130h480v260h-480z" />
+            <path id="r-alu-ctrl" className="box" d="M1610 2450h480v980h-480z" />
+            <path id="r-xys" className="box" d="M1610 3480h480v225h-480z" />
+            <path id="r-adhout" className="box" d="M1610 3760h480v220h-480z" />
+            <path id="r-ctrl-lines" style={{ fill: "#ffd5f6" , }} d="M2170 1150h320v3200h-320z" />
+        </g>
+        <g id="r-datapath">
+            <path id="r-adh-io" className="box" d="M4200 1175h200v270h-200z" />
+            <path id="r-adh-iop" className="pwr" d="M4202 1325h70v120h-70z" />
+            <path id="r-adbl" className="reg" d="M2560 4070h1700v140H2560z" />
+            <path id="r-adl-io" className="box" d="M2530 3726h200v270h-200z" />
+            <path id="r-adl-iop" className="pwr" d="M2532 3728h70v120h-70z" />
+            <path id="r-Yreg" className="reg" d="M2760 3880h1300v140H2760z" />
+            <path id="r-Xreg" className="reg" d="M2760 3690h1300v140H2760z" />
+            <path id="r-Sreg" className="reg" d="M2760 3500h1300v140H2760z" />
+            <path id="r-aluA" className="latch" d="M3440 3270h620v175h-620z" />
+            <path id="r-alu0" className="box" d="M3910 3070h150v130h-150z" />
+            <path id="p-aluA" d="M3810 3270v175" />
+            <path id="r-alunotdb" className="box" d="M2760 3070h150v130h-150z" />
+            <path id="r-aluB" className="latch" d="M2760 3270h620v175h-620z" />
+            <path id="p-aluB" d="M3010 3270v175" />
+            <path id="r-alu" style={{ fill: "#f0d0d0" , }} d="m3010 3200 75-400h650l75 400z" />
+            <path id="r-dc1" style={{ fill: "#f0d0d0" , }} d="M3085 2650h315v120h-315z" />
+            <path id="r-dc2" style={{ fill: "#f0d0d0" , }} d="M3420 2650h315v120h-315z" />
+            <path id="r-aluout" className="latch" d="M3085 2480h650v120h-650z" />
+            <path id="r-dasa" className="box" d="M2760 2280h1300v150H2760z" />
+            <path id="r-sbpower" className="pwr" d="M3918 2358h140v70h-140z" />
+            <path id="r-Areg" className="reg" d="M2760 2070h1300v140H2760z" />
+            <path id="r-bustfr" className="box" d="M2760 1880h1300v140H2760z" />
+            <path id="r-PCHreg" className="reg" d="M2760 1540h1300v290H2760z" />
+            <path id="p-PCHinc" d="M2760 1680h1300" />
+            <path id="p-PCHmid" d="M3410 1680v-140" />
+            <path id="p-PCHhc" d="M3080 1536v-42h910v34" style={{ fill: "none" , strokeWidth: 8,
+                markerEnd: "url(#Arrow2Send)" , }} />
+            <path id="r-PCLreg" className="reg" d="M2760 1150h1300v290H2760z" />
+            <path id="p-PCLinc" d="M2760 1306h1300" />
+            <path id="r-DL" className="latch" d="M2760 805h1300v200H2760z" />
+            <path id="r-dbpower" className="pwr" d="M2760 805h140v70h-140z" />
+            <path id="r-dataout" className="box" d="M2560 400h1700v200H2560z" />
+            <path id="r-adbl-3" className="reg" d="M4260 1556h140v1700h-140z" />
+        </g>
+    </g>
+    <text style={{ fontSize: 96, fontFamily: "Latin Modern Mono Caps,Consolas" , textAlign: "center" ,
+        textAnchor: "middle" , }} className="diag" x={-2700} y={2350} id="Text-dpc" transform="rotate(-90)">
+        <tspan x={-2700} y={2350} id="tsp-dpc">
+            {"Data path controller"}
+        </tspan>
+    </text>
+    <g id="Text-main" style={{ fontFamily: "Latin Modern Mono Caps,Consolas" , fontSize: 72, textAlign: "center" ,
+        textAnchor: "middle" , }} xmlSpace="preserve">
+        <g id="pad-names" style={{ fontSize: 84, textAlign: "center" , textAnchor: "middle" , }}>
+            <text x={1704} y={4400} id="tx0">
+                <tspan id="tsp0">{"SYNC"}</tspan>
+            </text>
+            <text x={141} y={938} id="tx1">
+                <tspan x={135} y={932} id="tsp1">
+                    {"CP0"}
+                </tspan>
+                <tspan x={135} y={1016} id="tsp2">
+                    {"IN"}
+                </tspan>
+            </text>
+            <text x={135} y={700} id="tx2">
+                <tspan id="tsp3" x={135} y={694}>
+                    {"SET"}
+                </tspan>
+                <tspan x={135} y={778} id="tsp4">
+                    {"OVFL"}
+                </tspan>
+            </text>
+            <text x={129} y={2806} id="tx3">
+                <tspan id="tsp5" x={129} y={2800}>
+                    {"CP2"}
+                </tspan>
+                <tspan x={129} y={2884} id="tsp6">
+                    {"OUT"}
+                </tspan>
+            </text>
+            <text x={131} y={1669} id="tx4">
+                <tspan id="tsp7">{"RES"}</tspan>
+            </text>
+            <text x={133} y={2313} id="tx5">
+                <tspan id="tsp8" x={133} y={2313}>
+                    {"0V"}
+                </tspan>
+                <tspan x={133} y={2397} id="tsp9">
+                    {"GND"}
+                </tspan>
+            </text>
+            <text x={135} y={2035} id="tx6">
+                <tspan id="tsp10">{"RDY"}</tspan>
+            </text>
+            <text x={131} y={3127} id="tx7">
+                <tspan id="tsp11" x={131} y={3121}>
+                    {"CP1"}
+                </tspan>
+                <tspan x={131} y={3205} id="tsp12">
+                    {"OUT"}
+                </tspan>
+            </text>
+            <text x={129} y={3969} id="tx8">
+                <tspan id="tsp13">{"IRQ"}</tspan>
+            </text>
+            <text x={133} y={4402} id="tx9">
+                <tspan id="tsp14">{"NMI"}</tspan>
+            </text>
+            <text x={1995} y={4368} id="tx10">
+                <tspan id="tsp15" x={1995} y={4324}>
+                    {"5V"}
+                </tspan>
+                <tspan id="tsp16" x={1995} y={4406}>
+                    {"POWER"}
+                </tspan>
+            </text>
+            <text x={2640} y={167} id="tx11">
+                <tspan id="tsp17">{"D0"}</tspan>
+            </text>
+            <text x={2860} y={168} id="tx12">
+                <tspan id="tsp18">{"D1"}</tspan>
+            </text>
+            <text x={3080} y={168} id="tx13">
+                <tspan id="tsp19">{"D2"}</tspan>
+            </text>
+            <text x={3300} y={167} id="tx14">
+                <tspan id="tsp20">{"D3"}</tspan>
+            </text>
+            <text x={3520} y={168} id="tx15">
+                <tspan id="tsp21">{"D4"}</tspan>
+            </text>
+            <text x={3740} y={167} id="tx16">
+                <tspan id="tsp22">{"D5"}</tspan>
+            </text>
+            <text x={3960} y={167} id="tx17">
+                <tspan id="tsp23">{"D6"}</tspan>
+            </text>
+            <text x={4180} y={167} id="tx18">
+                <tspan id="tsp24">{"D7"}</tspan>
+            </text>
+            <text x={2644} y={4398} id="tx19">
+                <tspan id="tsp25">{"A0"}</tspan>
+            </text>
+            <text x={2864} y={4398} id="tx20">
+                <tspan id="tsp26">{"A1"}</tspan>
+            </text>
+            <text x={3084} y={4398} id="tx21">
+                <tspan id="tsp27">{"A2"}</tspan>
+            </text>
+            <text x={3304} y={4398} id="tx22">
+                <tspan id="tsp28">{"A3"}</tspan>
+            </text>
+            <text x={3524} y={4398} id="tx23">
+                <tspan id="tsp29">{"A4"}</tspan>
+            </text>
+            <text x={3744} y={4398} id="tx24">
+                <tspan id="tsp30">{"A5"}</tspan>
+            </text>
+            <text x={3964} y={4398} id="tx25">
+                <tspan id="tsp31">{"A6"}</tspan>
+            </text>
+            <text x={4184} y={4398} id="tx26">
+                <tspan id="tsp32">{"A7"}</tspan>
+            </text>
+            <text x={4570} y={4034} id="tx27">
+                <tspan id="tsp33">{"A8"}</tspan>
+            </text>
+            <text x={4570} y={3607} id="tx28">
+                <tspan id="tsp34">{"A9"}</tspan>
+            </text>
+            <text x={4570} y={3181} id="tx29">
+                <tspan id="tsp35">{"A10"}</tspan>
+            </text>
+            <text x={4570} y={2754} id="tx30">
+                <tspan id="tsp36">{"A11"}</tspan>
+            </text>
+            <text x={4570} y={1968} id="tx31">
+                <tspan id="tsp37">{"A12"}</tspan>
+            </text>
+            <text x={4570} y={1542} id="tx32">
+                <tspan id="tsp38">{"A13"}</tspan>
+            </text>
+            <text x={4570} y={1116} id="tx33">
+                <tspan id="tsp39">{"A14"}</tspan>
+            </text>
+            <text x={4572} y={691} id="tx34">
+                <tspan id="tsp40">{"A15"}</tspan>
+            </text>
+            <text x={4568} y={2313} id="tx35">
+                <tspan id="tsp41" x={4568} y={2313}>
+                    {"0V"}
+                </tspan>
+                <tspan x={4568} y={2397} id="tsp42">
+                    {"GND"}
+                </tspan>
+            </text>
+            <text x={129} y={162} id="tx36">
+                <tspan id="tsp43">{"R/w"}</tspan>
+            </text>
+        </g>
+        <g id="flags" style={{ fontSize: 84, textAlign: "start" , textAnchor: "start" , }}>
+            <text x={2384} y={612} id="tx270">
+                <tspan id="tsp277">{"Z"}</tspan>
+            </text>
+            <text x={2383} y={410} id="tx271">
+                <tspan id="tsp278">{"N"}</tspan>
+            </text>
+            <text x={2113} y={511} id="tx272">
+                <tspan id="tsp279">{"V"}</tspan>
+            </text>
+            <text x={2115} y={742} id="tx273">
+                <tspan id="tsp280">{"D"}</tspan>
+            </text>
+            <text x={2112} y={971} id="tx274">
+                <tspan id="tsp281">{"C"}</tspan>
+            </text>
+            <text x={1860} y={800} id="tx275">
+                <tspan id="tsp282">{"I"}</tspan>
+            </text>
+            <text x={1295} y={3311} id="tx276">
+                <tspan id="tsp283">{"B"}</tspan>
+            </text>
+        </g>
+        <g id="flip-flops" style={{ fontSize: 48, textAlign: "start" , textAnchor: "start" , }}>
+            <text x={1661} y={449} id="tx277">
+                <tspan x={1661} y={449} id="tsp284">
+                    {"BFW"}
+                </tspan>
+            </text>
+            <text x={318} y={4386.5} id="tx278" style={{ fontSize: 60, }}>
+                <tspan id="tsp285" x={318} y={4386.5}>
+                    {"T5"}
+                </tspan>
+            </text>
+            <text x={423.517} y={4387} id="tx279" style={{ fontSize: 60, }}>
+                <tspan id="tsp286" x={423.517} y={4387}>
+                    {"T4"}
+                </tspan>
+            </text>
+            <text x={529.832} y={4387} id="tx280" style={{ fontSize: 60, }}>
+                <tspan id="tsp287" x={529.832} y={4387}>
+                    {"T3"}
+                </tspan>
+            </text>
+            <text x={636} y={4387} id="tx281" style={{ fontSize: 60, }}>
+                <tspan id="tsp288" x={636} y={4387}>
+                    {"T2"}
+                </tspan>
+            </text>
+            <text x={97} y={4196} id="tx282" style={{ fontSize: 36, }}>
+                <tspan id="tsp289">{"NMIP"}</tspan>
+            </text>
+            <text x={97} y={3773} id="tx283" style={{ fontSize: 36, }}>
+                <tspan id="tsp290">{"IRQP"}</tspan>
+            </text>
+            <text x={97} y={1841} id="tx284" style={{ fontSize: 36, }}>
+                <tspan id="tsp291">{"RESP"}</tspan>
+            </text>
+            <text x={824} y={4382} id="tx285" style={{ fontSize: 36, }}>
+                <tspan id="tsp292">{"NMIL"}</tspan>
+            </text>
+            <text x={972} y={4382} id="tx286" style={{ fontSize: 36, }}>
+                <tspan id="tsp293">{"NMIG"}</tspan>
+            </text>
+            <text x={1276} y={3957} id="tx287" style={{ fontSize: 36, }}>
+                <tspan id="tsp294">{"RESG"}</tspan>
+            </text>
+            <text x={1213} y={4382} id="tx288" style={{ fontSize: 36, }}>
+                <tspan id="tsp295">{"INTG"}</tspan>
+            </text>
+            <text x={1849} y={1039} id="tx289">
+                <tspan id="tsp296">{"BRC"}</tspan>
+            </text>
+            <text x={1818} y={1999} id="tx290">
+                <tspan id="tsp297">{"PXC"}</tspan>
+            </text>
+            <text x={1279} y={2820} id="tx291">
+                <tspan id="tsp298">{"RCC"}</tspan>
+            </text>
+            <text x={882} y={437} id="tx292" style={{ fontSize: 60, }}>
+                <tspan id="tsp299">{"T0"}</tspan>
+            </text>
+            <text x={1284} y={1163} id="tx293" style={{ fontSize: 60, }}>
+                <tspan id="tsp300">{"TM"}</tspan>
+            </text>
+            <text x={1279} y={2047} id="tx294">
+                <tspan id="tsp301">{"RRW"}</tspan>
+            </text>
+            <text x={1659} y={1039} id="tx295">
+                <tspan id="tsp302">{"T1S"}</tspan>
+            </text>
+        </g>
+        <g id="prog-ctrl-titles">
+            <text x={550} y={254} id="tx296">
+                <tspan id="tsp303" x={550} y={254}>
+                    {"IR Instruction"}
+                </tspan>
+                <tspan x={550} y={326} id="tsp304">
+                    {"Register"}
+                </tspan>
+            </text>
+            <text x={2026} y={255} id="tx297">
+                <tspan x={2026} y={255} id="tsp305">
+                    {"Branch Control"}
+                </tspan>
+            </text>
+            <text x={1361} y={107} id="tx298">
+                <tspan id="tsp306" x={1361} y={107}>
+                    {"Predecode"}
+                </tspan>
+                <tspan x={1361} y={179} id="tsp307">
+                    {"Logic"}
+                </tspan>
+            </text>
+            <text x={1815} y={1185} id="tx299">
+                <tspan id="tsp308" x={1846} y={1185}>
+                    {"Program"}
+                </tspan>
+                <tspan x={1846} y={1257} id="tsp309">
+                    {"Control"}
+                </tspan>
+            </text>
+            <text x={1316} y={1194} id="tx300">
+                <tspan x={1316} y={1254} id="tsp310">
+                    {"Timing"}
+                </tspan>
+                <tspan x={1316} y={1314} id="tsp311">
+                    {"M-W"}
+                </tspan>
+            </text>
+            <text x={1266} y={1915} id="tx301" style={{ fontSize: 66, }}>
+                <tspan id="tsp312" x={1314} y={1915}>
+                    {"ReadyRW"}
+                </tspan>
+                <tspan x={1314} y={1975} id="tsp313">
+                    {"Control"}
+                </tspan>
+            </text>
+            <text x={1317} y={1544} id="tx302">
+                <tspan id="tsp314" x={1317} y={1544}>
+                    {"Timer"}
+                </tspan>
+                <tspan x={1317} y={1604} id="tsp315">
+                    {"Reset"}
+                </tspan>
+                <tspan x={1317} y={1664} id="tsp316">
+                    {"Logic"}
+                </tspan>
+            </text>
+            <text x={1843} y={1535} id="tx303">
+                <tspan id="tsp317" x={1843} y={1535}>
+                    {"Program"}
+                </tspan>
+                <tspan x={1843} y={1607} id="tsp318">
+                    {"Counter"}
+                </tspan>
+                <tspan x={1843} y={1679} id="tsp319">
+                    {"Control"}
+                </tspan>
+                <tspan x={1843} y={1751} id="tsp320">
+                    {"Logic"}
+                </tspan>
+            </text>
+            <text x={1851} y={2923} id="tx304">
+                <tspan x={1851} y={2923} id="tsp321">
+                    {"ALU Control"}
+                </tspan>
+                <tspan x={1851} y={2995} id="tsp322">
+                    {"Logic"}
+                </tspan>
+            </text>
+            <text x={1852} y={2220} id="tx305">
+                <tspan x={1852} y={2220} id="tsp323">
+                    {"Accumulator"}
+                </tspan>
+                <tspan x={1852} y={2280} id="tsp324">
+                    {"& Bus"}
+                </tspan>
+                <tspan x={1852} y={2340} id="tsp325">
+                    {"Logic"}
+                </tspan>
+            </text>
+            <text x={1850} y={3574} id="tx306" style={{ fontSize: 66, }}>
+                <tspan x={1850} y={3574} id="tsp326">
+                    {"X/Y/S Control"}
+                </tspan>
+                <tspan x={1850} y={3646} id="tsp327">
+                    {"Logic"}
+                </tspan>
+            </text>
+            <text x={1110} y={4465} id="tx307">
+                <tspan id="tsp328" x={1110} y={4465}>
+                    {"Interrupt Control"}
+                </tspan>
+            </text>
+            <text style={{ textAlign: "start" , textAnchor: "start" , }} x={636} y={700} id="tx308">
+                <tspan id="tsp329" x={636} y={700}>
+                    {"23x130x65"}
+                </tspan>
+                <tspan x={636} y={772} id="tsp330">
+                    {"Decode"}
+                </tspan>
+                <tspan x={636} y={844} id="tsp331">
+                    {"Logic"}
+                </tspan>
+                <tspan x={636} y={916} id="tsp332">
+                    {"(PLA/ROM)"}
+                </tspan>
+            </text>
+            <text x={495} y={4466} id="tx309">
+                <tspan x={495} y={4466} id="tsp333">
+                    {"Timing 2-5"}
+                </tspan>
+            </text>
+            <text style={{ fontSize: 66, }} x={135} y={1500} id="tx310">
+                <tspan x={135} y={1500} id="tsp334">
+                    {"Clock"}
+                </tspan>
+            </text>
+            <text style={{ fontSize: 66, }} x={-1276} y={215} id="text309a" transform="rotate(-90)">
+                <tspan x={-1276} y={215} id="tsp335">
+                    {"generation"}
+                </tspan>
+            </text>
+            <text x={862} y={182} id="tx311" style={{ textAlign: "start" , textAnchor: "start" , }}>
+                <tspan x={862} y={242} id="tsp336">
+                    {"Timing"}
+                </tspan>
+                <tspan x={862} y={302} id="tsp337">
+                    {"0-1"}
+                </tspan>
+            </text>
+            <text x={1316} y={746} id="tx312">
+                <tspan x={1316} y={806} id="tsp338">
+                    {"Flags"}
+                </tspan>
+                <tspan x={1316} y={866} id="tsp339">
+                    {"Setup"}
+                </tspan>
+            </text>
+            <text x={2122} y={623} id="tx313">
+                <tspan x={2122} y={623} id="tsp340">
+                    {"Flags I/O"}
+                </tspan>
+            </text>
+            <text style={{ fontSize: 66, }} x={1315} y={2904} id="tx314">
+                <tspan id="tsp341" x={1315} y={2904}>
+                    {"Rotate"}
+                </tspan>
+                <tspan x={1315} y={2964} id="tsp342">
+                    {"Carry"}
+                </tspan>
+                <tspan x={1315} y={3024} id="tsp343">
+                    {"Control"}
+                </tspan>
+            </text>
+            <text x={1312} y={2331} id="tx315">
+                <tspan x={1312} y={2311} id="tsp344">
+                    {"ADL"}
+                </tspan>
+                <tspan x={1312} y={2371} id="tspan66048">
+                    {"Output"}
+                </tspan>
+            </text>
+            <text x={1858} y={3895} id="tx316">
+                <tspan x={1858} y={3895} id="tsp345">
+                    {"ADH Output"}
+                </tspan>
+            </text>
+            <text style={{ fontSize: 66, }} x={1311} y={4042} id="tx317">
+                <tspan id="tsp346" x={1311} y={4042}>
+                    {"Set"}
+                </tspan>
+                <tspan x={1311} y={4102} id="tsp347">
+                    {"Interrupt"}
+                </tspan>
+                <tspan x={1311} y={4162} id="tsp348">
+                    {"Address"}
+                </tspan>
+            </text>
+            <text x={1846} y={2087} id="tx297-6">
+                <tspan x={1846} y={2087} id="tsp305-2">
+                    {"Page Cross"}
+                </tspan>
+            </text>
+        </g>
+        <g id="datapath-titles" style={{ fontSize: 84, textAlign: "start" , textAnchor: "start" , }}>
+            <text x={2915} y={522} id="tx365">
+                <tspan x={2915} y={522} id="tsp396">
+                    {" Data Bus Output"}
+                </tspan>
+            </text>
+            <text x={2915} y={934} id="tx366">
+                <tspan id="tsp397" x={2915} y={934}>
+                    {"DL Input Data Latch"}
+                </tspan>
+            </text>
+            <text x={2915} y={1256} id="tx367">
+                <tspan id="tsp398" x={2915} y={1256}>
+                    {"PCL Program Counter Low"}
+                </tspan>
+            </text>
+            <text x={2915} y={1796} id="tx368">
+                <tspan id="tsp399" x={2915} y={1796}>
+                    {"PCH Program Counter High"}
+                </tspan>
+            </text>
+            <text x={2915} y={2164} id="tx369">
+                <tspan x={2915} y={2164} id="tsp400">
+                    {"A Accumulator"}
+                </tspan>
+            </text>
+            <text x={3198} y={2587} id="tx370">
+                <tspan id="tsp401">{"ALU out"}</tspan>
+            </text>
+            <text style={{ textAlign: "center" , textAnchor: "middle" , }} x={3414} y={2905} id="tx371">
+                <tspan id="tsp402" x={3414} y={2905}>
+                    {"ALU Arithmetic"}
+                </tspan>
+                <tspan x={3414} y={2980} id="tsp403">
+                    {"Logic Unit"}
+                </tspan>
+            </text>
+            <text x={3070} y={3380} id="tx372">
+                <tspan id="tsp404">{"ALU B"}</tspan>
+            </text>
+            <text x={3504} y={3380} id="tx373">
+                <tspan id="tsp405">{"ALU A"}</tspan>
+            </text>
+            <text x={2913} y={3598} id="tx374">
+                <tspan id="tsp406" x={2913} y={3598}>
+                    {"S Stack Pointer"}
+                </tspan>
+            </text>
+            <text x={2915} y={3788} id="tx375">
+                <tspan x={2915} y={3788} id="tsp407">
+                    {"X Index Register"}
+                </tspan>
+            </text>
+            <text x={2915} y={3979} id="tx376">
+                <tspan id="tsp408" x={2915} y={3979}>
+                    {"Y Index Register"}
+                </tspan>
+            </text>
+            <text x={2915} y={4171} id="tx377">
+                <tspan id="tsp409" x={2915} y={4171}>
+                    {"AL Address Bus Low"}
+                </tspan>
+            </text>
+            <text transform="rotate(-90)" x={-2864} y={4355} id="tx378">
+                <tspan x={-2864} y={4355} id="tsp410">
+                    {"AH Address Bus High"}
+                </tspan>
+            </text>
+            <text id="tx379" x={2588} y={3586} style={{ fill: "#4b9ed4" , }}>
+                <tspan x={2588} y={3586} id="tsp411">
+                    {"adl"}
+                </tspan>
+            </text>
+            <text id="tx380" x={4031} y={2518} style={{ fill: "#ff8080" , }}>
+                <tspan x={4031} y={2518} id="tsp412">
+                    {"sb"}
+                </tspan>
+            </text>
+            <text id="tx381" x={2704} y={2970} style={{ fill: "#8f0000" , }}>
+                <tspan x={2704} y={2970} id="tsp413">
+                    {"db"}
+                </tspan>
+            </text>
+            <text id="tx382" x={4149} y={1063} style={{ fill: "#0000b0" , }}>
+                <tspan x={4149} y={1063} id="tsp414">
+                    {"adh"}
+                </tspan>
+            </text>
+            <text x={2813} y={3162} id="tx383">
+                <tspan id="tsp415" x={2813} y={3162}>
+                    {"!"}
+                </tspan>
+            </text>
+            <text x={3959} y={3164} id="tx384">
+                <tspan id="tsp416" x={3959} y={3164}>
+                    {"0"}
+                </tspan>
+            </text>
+            <text style={{ fontSize: 72, }} x={3008} y={1632} id="tx385">
+                <tspan x={3008} y={1632} id="tsp417">
+                    {"PCH Update & Increment"}
+                </tspan>
+            </text>
+            <text style={{ fontSize: 72, }} x={3008} y={1403} id="tx386">
+                <tspan id="tsp418" x={3008} y={1403}>
+                    {"PCL Update & Increment"}
+                </tspan>
+            </text>
+        </g>
+        <g id="extra" style={{ fontSize: 54, textAlign: "center" , textAnchor: "middle" , }}>
+            <text x={3394} y={2703} id="tx431" style={{ fontSize: 72, }}>
+                <tspan x={3230} y={2703} id="tsp463">
+                    {"Decimal"}
+                </tspan>
+                <tspan x={3580} y={2703} id="tsp463-0">
+                    {"Carry"}
+                </tspan>
+            </text>
+            <text x={3410} y={2373} id="tx489" style={{ fontSize: 72, }}>
+                <tspan x={3410} y={2373} id="tsp521">
+                    {"Decimal Adjust Accumulator"}
+                </tspan>
+            </text>
+            <text x={3410} y={1967} id="tx489-7" style={{ fontSize: 72, }}>
+                <tspan x={3410} y={1967} id="tsp521-9">
+                    {"Bus Transfer"}
+                </tspan>
+            </text>
+            <text style={{ fill: "#f60" , }} id="tx416-2" y={1534} x={-2241} transform="rotate(-90)">
+                <tspan y={1534} x={-2241} id="tsp448-0">
+                    {"!rdy"}
+                </tspan>
+            </text>
+            <text x={2668} y={3794} id="tx473">
+                <tspan x={2668} y={3794} id="tsp505">
+                    {"adl/"}
+                </tspan>
+            </text>
+            <text x={4339} y={1431} id="tx474">
+                <tspan id="tsp506" x={4339} y={1431}>
+                    {"adh/"}
+                </tspan>
+            </text>
+            <text style={{ fill: "#008066" , }} id="tx416-2-9" y={596.237} x={1290.243}>
+                <tspan y={596.237} x={1290.243} id="tsp448-0-2">
+                    {"T1S"}
+                </tspan>
+            </text>
+            <text style={{ fill: "#d6b" , }} id="tx416-2-9-2" x={78} y={588}>
+                <tspan x={78} y={588} id="tsp448-0-2-9">
+                    {"1/V"}
+                </tspan>
+            </text>
+            <text style={{ fill: "#803380" , }} id="tx416-2-9-2-7" x={200} y={487}>
+                <tspan x={200} y={487} id="tsp448-0-2-9-0">
+                    {"db/"}
+                </tspan>
+            </text>
+        </g>
+    </g>
+</svg>

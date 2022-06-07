@@ -1,0 +1,47 @@
+.sorting {
+    display: flex;
+    flex-direction: column;
+}
+
+.visual {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: baseline;
+}
+
+.array-bar {
+    display: flex;
+    margin: 1px;
+    width: 10px;
+    background: #00ffff;
+    height: 10px;
+}
+
+.death-div {
+    display: none;
+    zoom: 2;
+    border-radius: 5px;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+#close {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
