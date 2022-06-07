@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Redirect } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import './pages/Home';
 import Projects from './pages/Projects'
@@ -32,19 +32,19 @@ class App extends Component {
             <Navbar />
           </header>
           <div className="pages">
-            <Switch>
-              <Route exact path="/graph" component={VisualGraph} />
-              <Route exact path="/chess" component={Chess} />
-              <Route exact path="/planets" component={Planets} />
-              <Route exact path="/" component={Home} />
-              <Route exact path="/h6502" component={H6502} />
-              <Route exact path="/projects" component={Projects} />
-              <Route exact path="/services" component={Services} />
-              <Route exact path="/other-sites" component={Other} />
-              <Route exact path="/about" component={About} />
-              <Route exact path="/contact" component={Contact} />
-              <Route exact path="/sorting" component={VisualSort} />
-            </Switch>
+            <Routes>
+              <Route path="/graph" element={<VisualGraph />} />
+              <Route path="/chess" element={<Chess />} />
+              <Route path="/planets" element={<Planets />} />
+              <Route path="/" element={<Home />} />
+              <Route path="/h6502" element={<H6502 />} />
+              <Route path="/projects" element={<Projects />} />
+              <Route path="/services" element={<Services />} />
+              <Route path="/other-sites" element={<Other />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/sorting" element={<VisualSort />} />
+            </Routes>
           </div>
         </Router>
         <Footer />
