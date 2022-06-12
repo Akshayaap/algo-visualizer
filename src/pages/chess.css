@@ -16,10 +16,12 @@
     width: 80px;
     height: 80px;
     background: #ffffff;
+    transition: all 2s;
 }
 
 .box-black {
     width: 80px;
     height: 80px;
     background: #666666;
+    transition: all 2s ease;
 }

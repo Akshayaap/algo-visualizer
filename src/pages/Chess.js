@@ -13,7 +13,7 @@ class Chess extends Component {
     }
 
     componentDidMount() {
-        this.sim.initComponents();
+        // this.sim.init();
 
     }
 
@@ -30,10 +30,10 @@ class Chess extends Component {
                                             {
                                                 elemI.map((elemJ, j) => {
                                                     return (<td className={'box-' + ((i + j) % 2 == 0 ? 'white' : 'black')} key={'' + ((7 - i) * 8 + j)} data-x={(7 - i)} data-y={j} onClick={(event) => {
-                                                        console.log(event);
+                                                        //console.log(event);
                                                         this.sim.onClick(parseInt(event.target.dataset.x), parseInt(event.target.dataset.y));
                                                     }} id={'back-' + (7 - i) + '-' + j} >
-                                                        <img id={'box-' + (7 - i) + '-' + j} src='...' width={'80px'} height={'80px'} key={'' + ((7 - i) * 8 + j)} data-x={(7 - i)} data-y={j} />
+                                                        <img className='pieceImg' id={'box-' + (7 - i) + '-' + j} src='...' width={'80px'} height={'80px'} key={'' + ((7 - i) * 8 + j)} data-x={(7 - i)} data-y={j} />
                                                     </td>);
                                                 })
                                             }
