@@ -1,5 +1,5 @@
 
-import { Piece, Pawn, Bishop, Knight, Rook, Queen, King } from './Pieces';
+import { State, Piece, Pawn, Bishop, Knight, Rook, Queen, King } from './Pieces';
 
 import blackKing from '../assets/chess/black-king.png';
 import whiteKing from '../assets/chess/white-king.png';
@@ -16,72 +16,154 @@ import whitePawn from '../assets/chess/white-pawn.png';
 
 
 
-export class ChessBoard {
-    constructor() {
-        this.board = [];
+export class Player {
+    constructor(board, white) {
+        this.white = white; //true if white, false if black
+        this.board = board;
+        this.pieces = null;
+
+        this.init = this.init.bind(this);
+        this.reset = this.reset.bind(this);
+        this.update = this.update.bind(this);
+    }
+
+    init() {
+        this.pieces = {
+            pawn0: new Pawn(1, 0, this.white),
+            pawn1: new Pawn(1, 1, this.white),
+            pawn2: new Pawn(1, 2, this.white),
+            pawn3: new Pawn(1, 3, this.white),
+
+
+            pawn4: new Pawn(1, 0, this.white),
+            pawn5: new Pawn(1, 1, this.white),
+            pawn6: new Pawn(1, 2, this.white),
+            pawn7: new Pawn(1, 3, this.white),
+
+            rook0: new Rook(0, 0, this.white),
+            knight0: new Knight(0, 1, this.white),
+            bishop0: new Bishop(0, 2, this.white),
+            king: new King(0, 3, this.white),
+
+            queen: new Queen(0, 0, this.white),
+            bishop1: new Bishop(0, 1, this.white),
+            knight1: new Knight(0, 2, this.white),
+            rook1: new Rook(0, 3, this.white)
+        };
+
         for (let i = 0; i < 8; i++) {
-            this.board.push([]);
             for (let j = 0; j < 8; j++) {
-                this.board[i].push(new Box(this, i, j));
+                this.board.board[i][j].piece = null;
             }
         }
 
+        this.board.board[this.pieces.pawn0.x][this.pieces.pawn0.y] = this.pieces.pawn0;
+        this.board.board[this.pieces.pawn1.x][this.pieces.pawn1.y] = this.pieces.pawn1;
+        this.board.board[this.pieces.pawn2.x][this.pieces.pawn2.y] = this.pieces.pawn2;
+        this.board.board[this.pieces.pawn3.x][this.pieces.pawn3.y] = this.pieces.pawn3;
+
+        this.board.board[this.pieces.pawn4.x][this.pieces.pawn4.y] = this.pieces.pawn4;
+        this.board.board[this.pieces.pawn5.x][this.pieces.pawn5.y] = this.pieces.pawn5;
+        this.board.board[this.pieces.pawn6.x][this.pieces.pawn6.y] = this.pieces.pawn6;
+        this.board.board[this.pieces.pawn7.x][this.pieces.pawn7.y] = this.pieces.pawn7;
+
+        this.board.board[this.pieces.rook0.x][this.pieces.rook0.y] = this.pieces.rook0;
+        this.board.board[this.pieces.knight0.x][this.pieces.knight0.y] = this.pieces.knight0;
+        this.board.board[this.pieces.bishop0.x][this.pieces.bishop0.y] = this.pieces.bishop0;
+        this.board.board[this.pieces.queen.x][this.pieces.queen.y] = this.pieces.queen;
+
+        this.board.board[this.pieces.king.x][this.pieces.king.y] = this.pieces.king;
+        this.board.board[this.pieces.bishop1.x][this.pieces.bishop1.y] = this.pieces.bishop1;
+        this.board.board[this.pieces.knight1.x][this.pieces.knight1.y] = this.pieces.knight1;
+        this.board.board[this.pieces.rook1.x][this.pieces.rook1.y] = this.pieces.rook1;
+    }
+    reset() {
+        this.init();
+    }
+    update() {
+
+    }
+}
+
+export class ChessBoard {
+    constructor() {
+        this.state = new State();
+        this.board = [];
         this.playerWhite = new Player(this, true);
         this.playerBlack = new Player(this, false);
 
         this.boardUI = [];
         this.boardBack = [];
 
+
         //bindings
         this.reset = this.reset.bind(this);
-        this.getPiece = this.getPiece.bind(this);
         this.update = this.update.bind(this);
         this.move = this.move.bind(this);
         this.init = this.init.bind(this);
+        this.clearState = this.clearState.bind(this);
     }
 
     init() {
 
-        this.playerBlack.reset();
-        this.playerBlack.reset();
 
         for (let i = 0; i < 8; i++) {
+            this.board.push([]);
             this.boardUI.push([]);
             this.boardBack.push([]);
             for (let j = 0; j < 8; j++) {
-                import { Piece, Pawn, Bishop, Knight, Rook, Queen, King } from './Pieces';
+                this.board[i].push(new Box(this, i, j, null));
                 this.boardUI[i].push(document.querySelector(`#box-${i}-${j}`));
                 this.boardBack[i].push(document.querySelector(`#back-${i}-${j}`));
             }
         }
 
-        this.boardUI[0][0].src = whiteRook;
-        this.boardUI[0][1].src = whiteKnight;
-        this.boardUI[0][2].src = whiteBishop;
-        this.boardUI[0][3].src = whiteQueen;
+        this.playerBlack.init();
+        this.playerBlack.init();
 
-        this.boardUI[0][4].src = whiteKing;
-        this.boardUI[0][5].src = whiteBishop;
-        this.boardUI[0][6].src = whiteKnight;
-        this.boardUI[0][7].src = whiteRook;
+        this.boardUI[0][0].src = this.playerWhite.pieces.rook0.img;
+        this.boardUI[0][1].src = this.playerWhite.pieces.knight0.img;
+        this.boardUI[0][2].src = this.playerWhite.pieces.bishop0.img;
+        this.boardUI[0][3].src = this.playerWhite.pieces.king.img;
 
-        for (let i = 0; i < 8; i++) {
-            this.boardUI[1][i].src = whitePawn;
-        }
+        this.boardUI[0][4].src = this.playerWhite.pieces.queen.img;
+        this.boardUI[0][5].src = this.playerWhite.pieces.bishop1.img;
+        this.boardUI[0][6].src = this.playerWhite.pieces.knight1.img;
+        this.boardUI[0][7].src = this.playerWhite.pieces.rook1.img;
 
-        this.boardUI[7][0].src = blackRook;
-        this.boardUI[7][1].src = blackKnight;
-        this.boardUI[7][2].src = blackBishop;
-        this.boardUI[7][3].src = blackQueen;
+        this.boardUI[1][0].src = this.playerWhite.pieces.pawn0.img;
+        this.boardUI[1][1].src = this.playerWhite.pieces.pawn1.img;
+        this.boardUI[1][2].src = this.playerWhite.pieces.pawn2.img;
+        this.boardUI[1][3].src = this.playerWhite.pieces.pawn3.img;
 
-        this.boardUI[7][4].src = blackKing;
-        this.boardUI[7][5].src = blackBishop;
-        this.boardUI[7][6].src = blackKnight;
-        this.boardUI[7][7].src = blackRook;
+        this.boardUI[1][4].src = this.playerWhite.pieces.pawn4.img;
+        this.boardUI[1][5].src = this.playerWhite.pieces.pawn5.img;
+        this.boardUI[1][6].src = this.playerWhite.pieces.pawn6.img;
+        this.boardUI[1][7].src = this.playerWhite.pieces.pawn7.img;
 
-        for (let i = 0; i < 8; i++) {
-            this.boardUI[6][i].src = blackPawn;
-        }
+
+        //Black Pieces
+        this.boardUI[7][0].src = this.playerBlack.pieces.rook0.img;
+        this.boardUI[7][1].src = this.playerBlack.pieces.knight0.img;
+        this.boardUI[7][2].src = this.playerBlack.pieces.bishop0.img;
+        this.boardUI[7][3].src = this.playerBlack.pieces.king.img;
+
+        this.boardUI[7][4].src = this.playerBlack.pieces.queen.img;
+        this.boardUI[7][5].src = this.playerBlack.pieces.bishop1.img;
+        this.boardUI[7][6].src = this.playerBlack.pieces.knight1.img;
+        this.boardUI[7][7].src = this.playerBlack.pieces.rook1.img;
+
+
+        this.boardUI[6][0].src = this.playerBlack.pieces.pawn0.img;
+        this.boardUI[6][1].src = this.playerBlack.pieces.pawn1.img;
+        this.boardUI[6][2].src = this.playerBlack.pieces.pawn2.img;
+        this.boardUI[6][3].src = this.playerBlack.pieces.pawn3.img;
+
+        this.boardUI[6][4].src = this.playerBlack.pieces.pawn4.img;
+        this.boardUI[6][5].src = this.playerBlack.pieces.pawn5.img;
+        this.boardUI[6][6].src = this.playerBlack.pieces.pawn6.img;
+        this.boardUI[6][7].src = this.playerBlack.pieces.pawn7.img;
+
 
         for (let i = 2; i < 6; i++) {
             for (let j = 0; j < 8; j++) {
@@ -91,8 +173,7 @@ export class ChessBoard {
     }
     reset() {
 
-        this.board[0][0] = new Box(this.board, 0, 0);
-        this.board[0][0].setPiece(new Rook(0, 0, true));
+        this.board[0][0].setPiece(this.playerWhite.piece);
         this.board[0][1] = new Box(this.board, 0, 1);
         this.board[0][1].setPiece(new Knight(0, 1, true));
         this.board[0][2] = new Box(this.board, 0, 2);
@@ -152,6 +233,7 @@ export class ChessBoard {
     }
 
     move(i1, j1, i2, j2) {
+
         if (this.board[i1][j1].piece == null) {
             return;
         }
@@ -159,8 +241,76 @@ export class ChessBoard {
         this.board[i1][j1].piece = null;
         this.board[i2][j2].piece.x = i2;
         this.board[i2][j2].piece.y = j2;
+
+        this.board.move(i1, j1, i2, j2);
+        this.boardUI[i2][j2].src = this.boardUI[i1][j1].src;
+        this.boardUI[i1][j1].src = null;
+        this.boardUI[i2][j2].style.display = 'block';
+        this.boardUI[i1][j1].style.display = 'none';
+
+
+
+
+        this.boardBack[i1][j1].style.backgroundColor = '#ff0000';
+        this.boardBack[i2][j2].style.backgroundColor = '#00ff00';
     }
 
+    onClick(x, y) {
+        switch (this.state.state) {
+            case State.NORMAL:
+                if (this.state.chXPrev >= 0 && this.state.chYPrev >= 0) {
+                    this.boardBack[this.state.chXPrev][this.state.chYPrev].style.backgroundColor = (this.state.chXPrev + this.state.chYPrev) % 2 == 0 ? '#666666' : '#ffffff';
+                }
+                if (this.state.chX >= 0 && this.state.chY >= 0) {
+                    this.boardBack[this.state.chX][this.state.chY].style.backgroundColor = (this.state.chX + this.state.chY) % 2 == 0 ? '#666666' : '#ffffff';;
+                }
+                this.boardBack[x][y].style.backgroundColor = '#0000ff';
+                this.state.chXPrev = this.state.chX;
+                this.state.chYPrev = this.state.chY;
+
+                this.state.chX = x;
+                this.state.chY = y;
+                this.state.state = State.CHOOSEN;
+
+                //this.boardBack[x][y].style.backgroundColor = '#ff0000ff';
+                break;
+            case State.CHOOSEN:
+
+                if (this.state.chX == x && this.state.chY == y) {
+                    this.clearState();
+                    break;
+                }
+                this.move(this.state.chX, this.state.chY, x, y);
+                this.state.state = State.NORMAL;
+
+                // this.boardBack[this.state.chX][this.state.chY].style.backgroundColor = '#00ff00ff';
+                // this.boardBack[x][y].style.backgroundColor = '#ff0000ff';
+
+                this.state.chXPrev = this.state.chX;
+                this.state.chYPrev = this.state.chY;
+                this.state.chX = x;
+                this.state.chY = y;
+
+                break;
+            default:
+                break;
+
+        }
+    }
+
+    clearState() {
+        this.state.state = State.NORMAL;
+        if (this.state.chXPrev >= 0 && this.state.chYPrev >= 0) {
+            this.boardBack[this.state.chXPrev][this.state.chYPrev].style.backgroundColor = (this.state.chXPrev + this.state.chYPrev) % 2 == 0 ? '#666666' : '#ffffff';
+        }
+        if (this.state.chX >= 0 && this.state.chY >= 0) {
+            this.boardBack[this.state.chX][this.state.chY].style.backgroundColor = (this.state.chX + this.state.chY) % 2 == 0 ? '#666666' : '#ffffff';;
+        }
+        this.state.chX = -1;
+        this.state.chY = -1;
+        this.state.chXPrev = -1;
+        this.state.chYPrev = -1;
+    }
 }
 
 export class Box {
@@ -172,8 +322,6 @@ export class Box {
         this.y = y;
         this.init();
 
-
-        this.setPiece = this.setPiece.bind(this);
         this.init = this.init.bind(this);
         this.update = this.update.bind(this);
         this.reset = this.reset.bind(this);
@@ -182,17 +330,11 @@ export class Box {
     init() {
     }
 
-    setPiece(piece) {
-        this.piece = piece;
-        this.piece.box = this;
-    }
-
     update() {
-        this.piece.update();
+
     }
 
     reset() {
-
     }
 }
 

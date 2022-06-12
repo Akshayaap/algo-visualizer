@@ -96,7 +96,7 @@ export class Pawn extends Piece {
     }
 
     reset() {
-
+        super.reset();
     }
 }
 
