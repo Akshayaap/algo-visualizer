@@ -88,7 +88,12 @@ export class Pawn extends Piece {
     }
 
     init() {
-        super.init();
+        for (let i = 0; i < 8; i++) {
+            this.map.push([]);
+            for (let j = 0; j < 8; j++) {
+                this.map[i].push(false);
+            }
+        }
     }
 
     update() {
@@ -96,7 +101,7 @@ export class Pawn extends Piece {
     }
 
     reset() {
-        super.reset();
+
     }
 }
 
@@ -119,7 +124,12 @@ export class Knight extends Piece {
     }
 
     init() {
-        super.init();
+        for (let i = 0; i < 8; i++) {
+            this.map.push([]);
+            for (let j = 0; j < 8; j++) {
+                this.map[i].push(false);
+            }
+        }
     }
 
     update() {
@@ -149,7 +159,12 @@ export class Rook extends Piece {
     }
 
     init() {
-        super.init();
+        for (let i = 0; i < 8; i++) {
+            this.map.push([]);
+            for (let j = 0; j < 8; j++) {
+                this.map[i].push(false);
+            }
+        }
     }
 
     update() {
@@ -177,7 +192,12 @@ export class Bishop extends Piece {
     }
 
     init() {
-        super.init();
+        for (let i = 0; i < 8; i++) {
+            this.map.push([]);
+            for (let j = 0; j < 8; j++) {
+                this.map[i].push(false);
+            }
+        }
     }
 
     update() {
@@ -205,7 +225,12 @@ export class Queen extends Piece {
     }
 
     init() {
-        super.init();
+        for (let i = 0; i < 8; i++) {
+            this.map.push([]);
+            for (let j = 0; j < 8; j++) {
+                this.map[i].push(false);
+            }
+        }
     }
 
     update() {
@@ -227,14 +252,19 @@ export class King extends Piece {
             this.img = blackKing;
         }
         //bindings
-        t////bindings
+        ////bindings
         this.update = this.update.bind(this);
         this.reset = this.reset.bind(this);
         this.init = this.init.bind(this);
     }
 
     init() {
-        super.init();
+        for (let i = 0; i < 8; i++) {
+            this.map.push([]);
+            for (let j = 0; j < 8; j++) {
+                this.map[i].push(false);
+            }
+        }
     }
 
     update() {

@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import './navbar.css';
 import { useState } from 'react';
+import { NavbarBrand } from 'react-bootstrap';
 
 
 const Navbar = () => {
@@ -16,38 +17,38 @@ const Navbar = () => {
 
                 <div className="nav-container" >
 
-                    <NavLink exact to="/" className="nav-logo">
+                    <NavLink to="/" className="nav-logo">
                         THE AKSHAY
                     </NavLink>
 
                     <ul className={click ? "nav-menu active" : "nav-menu"}>
                         <li className="nav-item">
-                            <NavLink exact to="/" className="nav-link" onClick={handleClick}>
+                            <NavLink to="/" className="nav-link" onClick={handleClick}>
                                 Home
                             </NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink exact to="/projects" activeClassName="active" className="nav-link" onClick={handleClick}>
+                            <NavLink to="/projects" activeClassName="active" className="nav-link" onClick={handleClick}>
                                 Projects
                             </NavLink>
                         </li >
                         <li className="nav-item">
-                            <NavLink exact to="/services" activeClassName="active" className="nav-link" onClick={handleClick}>
+                            <NavLink to="/services" activeClassName="active" className="nav-link" onClick={handleClick}>
                                 Services
                             </NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink exact to="/other-sites" activeClassName="active" className="nav-link" onClick={handleClick}>
+                            <NavLink to="/other-sites" activeClassName="active" className="nav-link" onClick={handleClick}>
                                 Other Sites
                             </NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink exact to="/about" activeClassName="active" className="nav-link" onClick={handleClick}>
+                            <NavLink to="/about" activeClassName="active" className="nav-link" onClick={handleClick}>
                                 About
                             </NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink exact to="/contact" activeClassName="active" className="nav-link" onClick={handleClick}>
+                            <NavLink to="/contact" activeClassName="active" className="nav-link" onClick={handleClick}>
                                 Contact
                             </NavLink>
                         </li>

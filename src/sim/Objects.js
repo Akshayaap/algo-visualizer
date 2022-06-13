@@ -155,7 +155,7 @@ export class Objects {
         this.radius = radius;
         this.color = color;
         this.name = "";
-
+        this.consumed = false;
         this.force = new Vec2(0, 0);
         this.acc = new Vec2(0, 0);
 
@@ -164,27 +164,40 @@ export class Objects {
         this.update = this.update.bind(this);
         this.interact = this.interact.bind(this);
 
+
     }
 
 
     draw(p5) {
-        p5.ellipse(this.pos.x, this.pos.y, this.radius, this.radius);
+        p5.ellipse(this.pos.x, this.pos.y, 2 * this.radius, 2 * this.radius);
     }
 
 
     //Interact with other object and update force and acceleration according to newtons universal law of gravitation
 
     interact(other) {
-        let distance = Math.sqrt(Math.pow(this.pos.x - other.pos.x, 2) + Math.pow(this.pos.y - other.pos.y, 2));
-        let force = (this.mass * other.mass) / Math.pow(distance, 2) * .05;
+        if (other == null) {
+            return;
+        }
+        let sDist = (this.pos.x - other.pos.x) * (this.pos.x - other.pos.x) + (this.pos.y - other.pos.y) * (this.pos.y - other.pos.y); //Math.sqrt(Math.pow(this.pos.x - other.pos.x, 2) + Math.pow(this.pos.y - other.pos.y, 2));
 
-        let direction = new Vec2(this.pos.x - other.pos.x, this.pos.y - other.pos.y);
+        /**if ((this.radius + other.radius) * (this.radius + other.radius) > sDist) {
+            this.mass += other.mass;
+            this.force.add(other.force);
+            this.radius = Math.cbrt(this.mass * 100);
+            other.consumed = true;
+            return;
+        }*/
+
+        let force = (this.mass * other.mass) / sDist * .2;
+
+        let direction = new Vec2(other.pos.x - this.pos.x, other.pos.y - this.pos.y);
 
 
         direction.normalize();
 
         direction.scal(force);
-        this.force += direction;
+        this.force.add(direction);
     }
 
 
@@ -195,7 +208,7 @@ export class Objects {
         this.vel.add(this.acc);
 
         this.pos.add(this.vel);
-        this.force = 0;
+        this.force.setXY(0, 0);
 
     }
 }
@@ -223,10 +236,9 @@ export class Planet {
 
     //Function to interact with Sun
     interact(sun) {
-        console.log("Sun");
-        console.log(sun);
+
         let distance = sun.pos.distance(this.pos);
-        let force = (sun.mass * this.mass) / Math.pow(distance, 2) * .0001;
+        let force = (sun.mass * this.mass) / Math.pow(distance, 2) * 0.0001;
         let direction = sun.pos.subtraction(this.pos);
         direction.normalize();
         direction.scal(force);
@@ -243,6 +255,6 @@ export class Planet {
 
     draw(p5) {
         p5.fill(this.color)
-        p5.ellipse(this.pos.x, this.pos.y, this.radius, this.radius);
+        p5.ellipse(this.pos.x, this.pos.y, 2 * this.radius, 2 * this.radius);
     }
 }

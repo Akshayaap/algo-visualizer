@@ -11,12 +11,12 @@ export class SimGravity {
         for (let i = 0; i < this.count; i++) {
             let x = Math.random() * window.innerWidth;
             let y = Math.random() * window.innerHeight;
-            let vx = Math.random() * 10 - 5;
-            let vy = Math.random() * 10 - 5;
-            let mass = Math.random() * 100;
-            let radius = Math.random() * 100;
-            let color = Math.random() * 255;
-            this.objects.push(new Objects(new Vec2(x, y), new Vec2(vx, vy), mass, radius, color));
+            let vx = Math.random() * .8 - .4;
+            let vy = Math.random() * .8 - .4;
+            let mass = Math.random() * 200;
+            let radius = 4 * Math.cbrt(mass);
+
+            this.objects.push(new Objects(new Vec2(x, y), new Vec2(vx, vy), mass, radius, 255));
         }
 
         //bindings  
@@ -29,20 +29,33 @@ export class SimGravity {
     stepForward() {
         for (let i = 0; i < this.objects.length; i++) {
             for (let j = i + 1; j < this.objects.length; j++) {
-                if (this.objects[i] === (this.objects[j]))
+
+                if (this.objects[i] == null)
+                    continue;
+                if (this.objects[j] == null) {
+                    continue;
+                }
+                if (this.objects[i] === this.objects[j])
                     continue;
                 this.objects[i].interact(this.objects[j]);
+                if (this.objects[j].consumed) {
+                    this.objects[j] = null;
+                }
             }
         }
 
         for (let i = 0; i < this.objects.length; i++) {
+            if (this.objects[i] == null)
+                continue;
             this.objects[i].update();
         }
     }
 
     draw(p5) {
-        console.table(this.objects);
         for (let i = 0; i < this.objects.length; i++) {
+            if (this.objects[i] == null) {
+                return;
+            }
             this.objects[i].draw(p5);
         }
     }
