@@ -29,6 +29,16 @@ export class State {
         this.chXPrev = -1;
         this.chYPrev = -1;
 
+        this.reset = this.reset.bind(this);
+    }
+    reset() {
+        this.state = State.NORMAL;
+        this.chX = -1;
+        this.chY = -1;
+        this.turn = true; //true for white, false for black
+        this.chXPrev = -1;
+        this.chYPrev = -1;
+
     }
 }
 
@@ -69,10 +79,11 @@ export class Piece {
 }
 
 export class Pawn extends Piece {
-    constructor(x, y, white) {
+    constructor(board, x, y, white) {
         super(x, y, white);
+        this.board = board;
         this.type = 0;
-
+        this.moved = true;
         if (this.white) {
             this.img = whitePawn;
         }
@@ -80,11 +91,13 @@ export class Pawn extends Piece {
             this.img = blackPawn;
         }
 
+
         //bindings
         this.update = this.update.bind(this);
         this.reset = this.reset.bind(this);
         this.init = this.init.bind(this);
 
+        this.init();
     }
 
     init() {
@@ -97,7 +110,65 @@ export class Pawn extends Piece {
     }
 
     update() {
+        if (this.white) {
+            if (this.moved) {
+                if (this.x + 1 < 8 && this.board.board[this.x + 1][this.y].piece == null) {
+                    this.map[this.x + 1][this.y] = true;
+                }
+            }
+            else {
+                if (this.x + 1 < 8 && this.board.board[this.x + 1][this.y].piece == null) {
+                    this.map[this.x][this.y + 1] = true;
+                    if (this.x + 2 < 8 && this.board.board[this.x + 2][this.y].piece == null) {
+                        this.map[this.x + 2][this.y] = true;
+                    }
+                }
+            }
 
+            if (this.x + 1 < 8 && this.y + 1 < 8 && this.board.board[this.x + 1][this.y + 1].piece != null) {
+                if (!this.board.board[this.x + 1][this.y + 1].piece.white) {
+                    this.map[this.x + 1][this.y + 1] = true;
+                }
+            }
+
+            if (this.x + 1 < 8 && this.y - 1 >= 0) {
+                if (this.board.board[this.x + 1][this.y - 1].piece != null) {
+                    if (!this.board.board[this.x + 1][this.y - 1].piece.white) {
+                        this.map[this.x + 1][this.y - 1] = true;
+                    }
+                }
+
+            }
+        }
+        else {
+            if (this.moved) {
+                if (this.x - 1 >= 0 && this.board.board[this.x - 1][this.y].piece == null) {
+                    this.map[this.x - 1][this.y] = true;
+                }
+            }
+            else {
+                if (this.x - 1 >= 0 && this.board.board[this.x - 1][this.y].piece == null) {
+                    this.map[this.x - 1][this.y] = true;
+                    if (this.x - 2 >= 0 && this.board.board[this.x - 2][this.y].piece == null) {
+                        this.map[this.x - 2][this.y] = true;
+                    }
+                }
+            }
+
+            if (this.x - 1 >= 0 && this.y + 1 < 8 && this.board.board[this.x - 1][this.y + 1].piece != null) {
+                if (this.board.board[this.x - 1][this.y + 1].piece.white) {
+                    this.map[this.x - 1][this.y + 1] = true;
+
+                }
+            }
+
+            if (this.x - 1 >= 0 && this.y - 1 >= 0 && this.board.board[this.x - 1][this.y - 1].piece != null) {
+                if (this.board.board[this.x - 1][this.y - 1].piece.white) {
+                    this.map[this.x - 1][this.y - 1] = true;
+                }
+
+            }
+        }
     }
 
     reset() {
@@ -106,9 +177,11 @@ export class Pawn extends Piece {
 }
 
 export class Knight extends Piece {
-    constructor(x, y, white) {
+    constructor(board, x, y, white) {
         super(x, y, white);
+        this.board = board;
         this.type = 0;
+
 
         if (this.white) {
             this.img = whiteKnight;
@@ -121,6 +194,9 @@ export class Knight extends Piece {
         this.update = this.update.bind(this);
         this.reset = this.reset.bind(this);
         this.init = this.init.bind(this);
+
+
+        this.init();
     }
 
     init() {
@@ -141,8 +217,9 @@ export class Knight extends Piece {
 }
 
 export class Rook extends Piece {
-    constructor(x, y, white) {
+    constructor(board, x, y, white) {
         super(x, y, white);
+        this.board = board;
         this.type = 0;
 
         if (this.white) {
@@ -156,6 +233,9 @@ export class Rook extends Piece {
         this.update = this.update.bind(this);
         this.reset = this.reset.bind(this);
         this.init = this.init.bind(this);
+
+
+        this.init();
     }
 
     init() {
@@ -176,8 +256,9 @@ export class Rook extends Piece {
 }
 
 export class Bishop extends Piece {
-    constructor(x, y, white) {
+    constructor(board, x, y, white) {
         super(x, y, white);
+        this.board = board;
         this.type = 0;
         if (this.white) {
             this.img = whiteBishop;
@@ -189,6 +270,9 @@ export class Bishop extends Piece {
         this.update = this.update.bind(this);
         this.reset = this.reset.bind(this);
         this.init = this.init.bind(this);
+
+
+        this.init();
     }
 
     init() {
@@ -209,8 +293,9 @@ export class Bishop extends Piece {
 }
 
 export class Queen extends Piece {
-    constructor(x, y, white) {
+    constructor(board, x, y, white) {
         super(x, y, white);
+        this.board = board;
         this.type = 0;
         if (this.white) {
             this.img = whiteQueen;
@@ -222,6 +307,9 @@ export class Queen extends Piece {
         this.update = this.update.bind(this);
         this.reset = this.reset.bind(this);
         this.init = this.init.bind(this);
+
+
+        this.init();
     }
 
     init() {
@@ -242,8 +330,9 @@ export class Queen extends Piece {
 }
 
 export class King extends Piece {
-    constructor(x, y, white) {
+    constructor(board, x, y, white) {
         super(x, y, white);
+        this.board = board;
         this.type = 0;
         if (this.white) {
             this.img = whiteKing;
@@ -256,6 +345,9 @@ export class King extends Piece {
         this.update = this.update.bind(this);
         this.reset = this.reset.bind(this);
         this.init = this.init.bind(this);
+
+
+        this.init();
     }
 
     init() {
