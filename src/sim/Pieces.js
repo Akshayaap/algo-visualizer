@@ -212,72 +212,79 @@ export class Knight extends Piece {
             } else {
                 if (this.board.board[this.x + 2][this.y + 1].piece.white != this.white) {
                     this.map[this.x + 2][this.y + 1] = true;
+                    console.log("Here Missbehaing ");
                 }
             }
         }
         if (this.x + 2 < 8 && this.y - 1 >= 0) {
-            if (this.map[this.x + 2][this.y - 1].piece == null) {
+            if (this.board.board[this.x + 2][this.y - 1].piece == null) {
 
                 this.map[this.x + 2][this.y - 1] = true;
             } else {
                 if (this.board.board[this.x + 2][this.y - 1].piece.white != this.white) {
                     this.map[this.x + 2][this.y - 1] = true;
+                    console.log("Here Missbehaing ");
                 }
             }
         }
         if (this.x - 2 >= 0 && this.y + 1 < 8) {
-            if (this.map[this.x - 2][this.y + 1].piece == null) {
+            if (this.board.board[this.x - 2][this.y + 1].piece == null) {
 
                 this.map[this.x - 2][this.y + 1] = true;
             } else {
                 if (this.board.board[this.x - 2][this.y + 1].piece.white != this.white) {
                     this.map[this.x - 2][this.y + 1] = true;
+                    console.log("Here Missbehaing ");
                 }
             }
         }
         if (this.x - 2 >= 0 && this.y - 1 >= 0) {
-            if (this.map[this.x - 2][this.y - 1].piece == null) {
+            if (this.board.board[this.x - 2][this.y - 1].piece == null) {
                 this.map[this.x - 2][this.y - 1] = true;
             } else {
                 if (this.board.board[this.x - 2][this.y - 1].piece.white != this.white) {
                     this.map[this.x - 2][this.y - 1] = true;
+                    console.log("Here Missbehaing ");
                 }
             }
         }
         if (this.x + 1 < 8 && this.y + 2 < 8) {
-            if (this.map[this.x + 1][this.y + 2].piece == null) {
+            if (this.board.board[this.x + 1][this.y + 2].piece == null) {
                 this.map[this.x + 1][this.y + 2] = true;
             } else {
                 if (this.board.board[this.x + 1][this.y + 2].piece.white != this.white) {
                     this.map[this.x + 1][this.y + 2] = true;
+                    console.log("Here Missbehaing ");
                 }
             }
         }
         if (this.x + 1 < 8 && this.y - 2 >= 0) {
-            if (this.map[this.x + 1][this.y - 2].piece == null) {
+            if (this.board.board[this.x + 1][this.y - 2].piece == null) {
 
                 this.map[this.x + 1][this.y - 2] = true;
             } else {
                 if (this.board.board[this.x + 1][this.y - 2].piece.white != this.white) {
                     this.map[this.x + 1][this.y - 2] = true;
+                    console.log("Here Missbehaing ");
                 }
             }
         }
         if (this.x - 1 >= 0 && this.y + 2 < 8) {
-            if (this.map[this.x - 1][this.y + 2].piece == null) {
-
+            if (this.board.board[this.x - 1][this.y + 2].piece == null) {
                 this.map[this.x - 1][this.y + 2] = true;
             } else {
                 if (this.board.board[this.x - 1][this.y + 2].piece.white != this.white) {
                     this.map[this.x - 1][this.y + 2] = true;
+                    console.log("Here Missbehaing ");
                 }
             }
         }
         if (this.x - 1 >= 0 && this.y - 2 >= 0) {
-            if (this.map[this.x - 1][this.y - 2].piece == null) {
+            if (this.board.board[this.x - 1][this.y - 2].piece == null) {
                 this.map[this.x - 1][this.y - 2] = true;
             } else {
                 if (this.board.board[this.x - 1][this.y - 2].piece.white != this.white) {
+                    console.log("Here Missbehaing ");
                     this.map[this.x - 1][this.y - 2] = true;
                 }
             }
