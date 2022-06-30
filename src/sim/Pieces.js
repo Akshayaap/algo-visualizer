@@ -195,6 +195,7 @@ export class Knight extends Piece {
     }
 
     init() {
+        this.map = [];
         for (let i = 0; i < 8; i++) {
             this.map.push([]);
             for (let j = 0; j < 8; j++) {
@@ -204,63 +205,85 @@ export class Knight extends Piece {
     }
 
     update() {
-        this.map = []
-        for (let i = 0; i < 8; i++) {
-            this.map.push([]);
-            for (let j = 0; j < 8; j++) {
-                this.map[i].push(false);
+        if (this.x + 2 < 8 && this.y + 1 < 8) {
+            if (this.board.board[this.x + 2][this.y + 1].piece == null) {
+
+                this.map[this.x + 2][this.y + 1] = true;
+            } else {
+                if (this.board.board[this.x + 2][this.y + 1].piece.white != this.white) {
+                    this.map[this.x + 2][this.y + 1] = true;
+                }
             }
         }
-        if (this.white) {
-            if (this.x + 2 < 8 && this.y + 1 < 8 && (this.board.board[this.x + 2][this.y + 1].piece == null || !this.board.board[this.x + 2][this.y + 1].piece.white)) {
-                this.map[this.x + 2][this.y + 1] = true;
-            }
-            if (this.x + 2 < 8 && this.y - 1 >= 0 && (this.board.board[this.x + 2][this.y - 1].piece == null || !this.board.board[this.x + 2][this.y - 1].piece.white)) {
+        if (this.x + 2 < 8 && this.y - 1 >= 0) {// && (this.board.board[this.x + 2][this.y - 1].piece == null || !this.board.board[this.x + 2][this.y - 1].piece.white)) {
+
+            if (this.map[this.x + 2][this.y - 1].piece == null) {
+
                 this.map[this.x + 2][this.y - 1] = true;
-            }
-            if (this.x - 2 >= 0 && this.y + 1 < 8 && (this.board.board[this.x - 2][this.y + 1].piece == null || !this.board.board[this.x - 2][this.y + 1].piece.white)) {
-                this.map[this.x - 2][this.y + 1] = true;
-            }
-            if (this.x - 2 >= 0 && this.y - 1 >= 0 && (this.board.board[this.x - 2][this.y - 1].piece == null || !this.board.board[this.x - 2][this.y - 1].piece.white)) {
-                this.map[this.x - 2][this.y - 1] = true;
-            }
-            if (this.x + 1 < 8 && this.y + 2 < 8 && (this.board.board[this.x + 1][this.y + 2].piece == null || !this.board.board[this.x + 1][this.y + 2].piece.white)) {
-                this.map[this.x + 1][this.y + 2] = true;
-            }
-            if (this.x + 1 < 8 && this.y - 2 >= 0 && (this.board.board[this.x + 1][this.y - 2].piece == null || !this.board.board[this.x + 1][this.y - 2].piece.white)) {
-                this.map[this.x + 1][this.y - 2] = true;
-            }
-            if (this.x - 1 >= 0 && this.y + 2 < 8 && (this.board.board[this.x - 1][this.y + 2].piece == null || !this.board.board[this.x - 1][this.y + 2].piece.white)) {
-                this.map[this.x - 1][this.y + 2] = true;
-            }
-            if (this.x - 1 >= 0 && this.y - 2 >= 0 && (this.board.board[this.x - 1][this.y - 2].piece == null || !this.board.board[this.x - 1][this.y - 2].piece.white)) {
-                this.map[this.x - 1][this.y - 2] = true;
+            } else {
+                if (this.board.board[this.x + 2][this.y - 1].piece.white != this.white) {
+                    this.map[this.x + 2][this.y - 1] = true;
+                }
             }
         }
-        else {
-            if (this.x + 2 < 8 && this.y + 1 < 8 && (this.board.board[this.x + 2][this.y + 1].piece == null || this.board.board[this.x + 2][this.y + 1].piece.white)) {
-                this.map[this.x + 2][this.y + 1] = true;
-            }
-            if (this.x + 2 < 8 && this.y - 1 >= 0 && (this.board.board[this.x + 2][this.y - 1].piece == null || this.board.board[this.x + 2][this.y - 1].piece.white)) {
-                this.map[this.x + 2][this.y - 1] = true;
-            }
-            if (this.x - 2 >= 0 && this.y + 1 < 8 && (this.board.board[this.x - 2][this.y + 1].piece == null || this.board.board[this.x - 2][this.y + 1].piece.white)) {
+        if (this.x - 2 >= 0 && this.y + 1 < 8) {// && (this.board.board[this.x - 2][this.y + 1].piece == null || !this.board.board[this.x - 2][this.y + 1].piece.white)) {
+            if (this.map[this.x - 2][this.y + 1].piece == null) {
+
                 this.map[this.x - 2][this.y + 1] = true;
+            } else {
+                if (this.board.board[this.x - 2][this.y + 1].piece.white != this.white) {
+                    this.map[this.x - 2][this.y + 1] = true;
+                }
             }
-            if (this.x - 2 >= 0 && this.y - 1 >= 0 && (this.board.board[this.x - 2][this.y - 1].piece == null || this.board.board[this.x - 2][this.y - 1].piece.white)) {
+        }
+        if (this.x - 2 >= 0 && this.y - 1 >= 0) {//&& (this.board.board[this.x - 2][this.y - 1].piece == null || !this.board.board[this.x - 2][this.y - 1].piece.white)) {
+            if (this.map[this.x - 2][this.y - 1].piece == null) {
+
                 this.map[this.x - 2][this.y - 1] = true;
+            } else {
+                if (this.board.board[this.x - 2][this.y - 1].piece.white != this.white) {
+                    this.map[this.x - 2][this.y - 1] = true;
+                }
             }
-            if (this.x + 1 < 8 && this.y + 2 < 8 && (this.board.board[this.x + 1][this.y + 2].piece == null || this.board.board[this.x + 1][this.y + 2].piece.white)) {
+        }
+        if (this.x + 1 < 8 && this.y + 2 < 8) {// && (this.board.board[this.x + 1][this.y + 2].piece == null || !this.board.board[this.x + 1][this.y + 2].piece.white)) {
+            if (this.map[this.x + 1][this.y + 2].piece == null) {
+
                 this.map[this.x + 1][this.y + 2] = true;
+            } else {
+                if (this.board.board[this.x + 1][this.y + 2].piece.white != this.white) {
+                    this.map[this.x + 1][this.y + 2] = true;
+                }
             }
-            if (this.x + 1 < 8 && this.y - 2 >= 0 && (this.board.board[this.x + 1][this.y - 2].piece == null || this.board.board[this.x + 1][this.y - 2].piece.white)) {
+        }
+        if (this.x + 1 < 8 && this.y - 2 >= 0) {//} && (this.board.board[this.x + 1][this.y - 2].piece == null || !this.board.board[this.x + 1][this.y - 2].piece.white)) {
+            if (this.map[this.x + 1][this.y - 2].piece == null) {
+
                 this.map[this.x + 1][this.y - 2] = true;
+            } else {
+                if (this.board.board[this.x + 1][this.y - 2].piece.white != this.white) {
+                    this.map[this.x + 1][this.y - 2] = true;
+                }
             }
-            if (this.x - 1 >= 0 && this.y + 2 < 8 && (this.board.board[this.x - 1][this.y + 2].piece == null || this.board.board[this.x - 1][this.y + 2].piece.white)) {
+        }
+        if (this.x - 1 >= 0 && this.y + 2 < 8) {//} && (this.board.board[this.x - 1][this.y + 2].piece == null || !this.board.board[this.x - 1][this.y + 2].piece.white)) {
+            if (this.map[this.x - 1][this.y + 2].piece == null) {
+
                 this.map[this.x - 1][this.y + 2] = true;
+            } else {
+                if (this.board.board[this.x - 1][this.y + 2].piece.white != this.white) {
+                    this.map[this.x - 1][this.y + 2] = true;
+                }
             }
-            if (this.x - 1 >= 0 && this.y - 2 >= 0 && (this.board.board[this.x - 1][this.y - 2].piece == null || this.board.board[this.x - 1][this.y - 2].piece.white)) {
+        }
+        if (this.x - 1 >= 0 && this.y - 2 >= 0) {//} && (this.board.board[this.x - 1][this.y - 2].piece == null || !this.board.board[this.x - 1][this.y - 2].piece.white)) {
+            if (this.map[this.x - 1][this.y - 2].piece == null) {
+
                 this.map[this.x - 1][this.y - 2] = true;
+            } else {
+                if (this.board.board[this.x - 1][this.y - 2].piece.white != this.white) {
+                    this.map[this.x - 1][this.y - 2] = true;
+                }
             }
         }
     }
@@ -292,6 +315,7 @@ export class Rook extends Piece {
     }
 
     init() {
+        this.map = [];
         for (let i = 0; i < 8; i++) {
             this.map.push([]);
             for (let j = 0; j < 8; j++) {
@@ -301,7 +325,80 @@ export class Rook extends Piece {
     }
 
     update() {
+        this.init();
 
+        let i = this.x;
+        let j = this.y;
+        i++;
+        while (i < 8) {
+            if (this.board.board[i][j].piece == null) {
+                this.map[i][j] = true;
+                console.log(this.map[i][j]);
+            }
+            else {
+                if (this.board.board[i][j].piece.white != this.white) {
+                    this.map[i][j] = true;
+                    console.log(this.map[i][j]);
+                }
+                break;
+            }
+            i++;
+        }
+
+
+        i = this.x;
+        j = this.y;
+        i--;
+        while (i >= 0) {
+            if (this.board.board[i][j].piece == null) {
+                this.map[i][j] = true;
+                console.log(this.map[i][j]);
+            }
+            else {
+                if (this.board.board[i][j].piece.white != this.white) {
+                    this.map[i][j] = true;
+                    console.log(this.map[i][j]);
+                }
+                break;
+            }
+            i--;
+        }
+
+        i = this.x;
+        j = this.y;
+        j++;
+        while (j < 8) {
+            if (this.board.board[i][j].piece == null) {
+                this.map[i][j] = true;
+                console.log(this.map[i][j]);
+            }
+            else {
+                if (this.board.board[i][j].piece.white != this.white) {
+                    this.map[i][j] = true;
+                    console.log(this.map[i][j]);
+                }
+                break;
+            }
+            j++;
+        }
+
+        i = this.x;
+        j = this.y;
+        j--;
+        while (j >= 0) {
+            if (this.board.board[i][j].piece == null) {
+                this.map[i][j] = true;
+                console.log(this.map[i][j]);
+            }
+            else {
+                if (this.board.board[i][j].piece.white != this.white) {
+                    this.map[i][j] = true;
+                    console.log(this.map[i][j]);
+                }
+                break;
+            }
+            j--;
+        }
     }
     reset() {
 
@@ -329,6 +426,7 @@ export class Bishop extends Piece {
     }
 
     init() {
+        this.map = [];
         for (let i = 0; i < 8; i++) {
             this.map.push([]);
             for (let j = 0; j < 8; j++) {
