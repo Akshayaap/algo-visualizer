@@ -205,9 +205,9 @@ export class Knight extends Piece {
     }
 
     update() {
+        this.init();
         if (this.x + 2 < 8 && this.y + 1 < 8) {
             if (this.board.board[this.x + 2][this.y + 1].piece == null) {
-
                 this.map[this.x + 2][this.y + 1] = true;
             } else {
                 if (this.board.board[this.x + 2][this.y + 1].piece.white != this.white) {
@@ -215,8 +215,7 @@ export class Knight extends Piece {
                 }
             }
         }
-        if (this.x + 2 < 8 && this.y - 1 >= 0) {// && (this.board.board[this.x + 2][this.y - 1].piece == null || !this.board.board[this.x + 2][this.y - 1].piece.white)) {
-
+        if (this.x + 2 < 8 && this.y - 1 >= 0) {
             if (this.map[this.x + 2][this.y - 1].piece == null) {
 
                 this.map[this.x + 2][this.y - 1] = true;
@@ -226,7 +225,7 @@ export class Knight extends Piece {
                 }
             }
         }
-        if (this.x - 2 >= 0 && this.y + 1 < 8) {// && (this.board.board[this.x - 2][this.y + 1].piece == null || !this.board.board[this.x - 2][this.y + 1].piece.white)) {
+        if (this.x - 2 >= 0 && this.y + 1 < 8) {
             if (this.map[this.x - 2][this.y + 1].piece == null) {
 
                 this.map[this.x - 2][this.y + 1] = true;
@@ -236,9 +235,8 @@ export class Knight extends Piece {
                 }
             }
         }
-        if (this.x - 2 >= 0 && this.y - 1 >= 0) {//&& (this.board.board[this.x - 2][this.y - 1].piece == null || !this.board.board[this.x - 2][this.y - 1].piece.white)) {
+        if (this.x - 2 >= 0 && this.y - 1 >= 0) {
             if (this.map[this.x - 2][this.y - 1].piece == null) {
-
                 this.map[this.x - 2][this.y - 1] = true;
             } else {
                 if (this.board.board[this.x - 2][this.y - 1].piece.white != this.white) {
@@ -246,9 +244,8 @@ export class Knight extends Piece {
                 }
             }
         }
-        if (this.x + 1 < 8 && this.y + 2 < 8) {// && (this.board.board[this.x + 1][this.y + 2].piece == null || !this.board.board[this.x + 1][this.y + 2].piece.white)) {
+        if (this.x + 1 < 8 && this.y + 2 < 8) {
             if (this.map[this.x + 1][this.y + 2].piece == null) {
-
                 this.map[this.x + 1][this.y + 2] = true;
             } else {
                 if (this.board.board[this.x + 1][this.y + 2].piece.white != this.white) {
@@ -256,7 +253,7 @@ export class Knight extends Piece {
                 }
             }
         }
-        if (this.x + 1 < 8 && this.y - 2 >= 0) {//} && (this.board.board[this.x + 1][this.y - 2].piece == null || !this.board.board[this.x + 1][this.y - 2].piece.white)) {
+        if (this.x + 1 < 8 && this.y - 2 >= 0) {
             if (this.map[this.x + 1][this.y - 2].piece == null) {
 
                 this.map[this.x + 1][this.y - 2] = true;
@@ -266,7 +263,7 @@ export class Knight extends Piece {
                 }
             }
         }
-        if (this.x - 1 >= 0 && this.y + 2 < 8) {//} && (this.board.board[this.x - 1][this.y + 2].piece == null || !this.board.board[this.x - 1][this.y + 2].piece.white)) {
+        if (this.x - 1 >= 0 && this.y + 2 < 8) {
             if (this.map[this.x - 1][this.y + 2].piece == null) {
 
                 this.map[this.x - 1][this.y + 2] = true;
@@ -276,9 +273,8 @@ export class Knight extends Piece {
                 }
             }
         }
-        if (this.x - 1 >= 0 && this.y - 2 >= 0) {//} && (this.board.board[this.x - 1][this.y - 2].piece == null || !this.board.board[this.x - 1][this.y - 2].piece.white)) {
+        if (this.x - 1 >= 0 && this.y - 2 >= 0) {
             if (this.map[this.x - 1][this.y - 2].piece == null) {
-
                 this.map[this.x - 1][this.y - 2] = true;
             } else {
                 if (this.board.board[this.x - 1][this.y - 2].piece.white != this.white) {
@@ -333,12 +329,10 @@ export class Rook extends Piece {
         while (i < 8) {
             if (this.board.board[i][j].piece == null) {
                 this.map[i][j] = true;
-                console.log(this.map[i][j]);
             }
             else {
                 if (this.board.board[i][j].piece.white != this.white) {
                     this.map[i][j] = true;
-                    console.log(this.map[i][j]);
                 }
                 break;
             }
@@ -352,12 +346,10 @@ export class Rook extends Piece {
         while (i >= 0) {
             if (this.board.board[i][j].piece == null) {
                 this.map[i][j] = true;
-                console.log(this.map[i][j]);
             }
             else {
                 if (this.board.board[i][j].piece.white != this.white) {
                     this.map[i][j] = true;
-                    console.log(this.map[i][j]);
                 }
                 break;
             }
@@ -370,12 +362,10 @@ export class Rook extends Piece {
         while (j < 8) {
             if (this.board.board[i][j].piece == null) {
                 this.map[i][j] = true;
-                console.log(this.map[i][j]);
             }
             else {
                 if (this.board.board[i][j].piece.white != this.white) {
                     this.map[i][j] = true;
-                    console.log(this.map[i][j]);
                 }
                 break;
             }
@@ -388,12 +378,10 @@ export class Rook extends Piece {
         while (j >= 0) {
             if (this.board.board[i][j].piece == null) {
                 this.map[i][j] = true;
-                console.log(this.map[i][j]);
             }
             else {
                 if (this.board.board[i][j].piece.white != this.white) {
                     this.map[i][j] = true;
-                    console.log(this.map[i][j]);
                 }
                 break;
             }
