@@ -21,6 +21,10 @@ export class Player {
         this.white = white; //true if white, false if black
         this.board = board;
         this.pieces = null;
+        this.attackMap = [];
+        this.isCheck = false;
+        this.isCheckMate = false;
+        this.opponent = this.white ? this.board.playerBlack : this.board.playerWhite;
 
         this.init = this.init.bind(this);
         this.reset = this.reset.bind(this);
@@ -103,7 +107,34 @@ export class Player {
         this.init();
     }
     update() {
-
+        this.attackMap = [];
+        for (let i = 0; i < 8; i++) {
+            this.attackMap[i] = [];
+            for (let j = 0; j < 8; j++) {
+                this.attackMap[i][j] = false;
+            }
+        }
+        for (let i = 0; i < 8; i++) {
+            for (let j = 0; j < 8; j++) {
+                this.attackMap[i][j] =
+                    this.opponent.pieces.pawn0.map[i][j] ||
+                    this.opponent.pieces.pawn1.map[i][j] ||
+                    this.opponent.pieces.pawn2.map[i][j] ||
+                    this.opponent.pieces.pawn3.map[i][j] ||
+                    this.opponent.pieces.pawn4.map[i][j] ||
+                    this.opponent.pieces.pawn5.map[i][j] ||
+                    this.opponent.pieces.pawn6.map[i][j] ||
+                    this.opponent.pieces.pawn7.map[i][j] ||
+                    this.opponent.pieces.rook0.map[i][j] ||
+                    this.opponent.pieces.knight0.map[i][j] ||
+                    this.opponent.pieces.bishop0.map[i][j] ||
+                    this.opponent.pieces.queen.map[i][j] ||
+                    this.opponent.pieces.king.map[i][j] ||
+                    this.opponent.pieces.bishop1.map[i][j] ||
+                    this.opponent.pieces.knight1.map[i][j] ||
+                    this.opponent.pieces.rook1.map[i][j];
+            }
+        }
     }
 }
 
@@ -221,6 +252,9 @@ export class ChessBoard {
                 this.board[i][j].update();
             }
         }
+        this.playerWhite.update();
+        this.playerBlack.update();
+
     }
 
     move(i1, j1, i2, j2) {
