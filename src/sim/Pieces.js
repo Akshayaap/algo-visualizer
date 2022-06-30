@@ -53,6 +53,7 @@ export class Piece {
         this.y = y;
         this.type = -1;
         this.white = white;
+        this.moved = false;
         this.map = [];
 
         this.init = this.init.bind(this);
@@ -83,7 +84,6 @@ export class Pawn extends Piece {
         super(x, y, white);
         this.board = board;
         this.type = 0;
-        this.moved = true;
         if (this.white) {
             this.img = whitePawn;
         }
@@ -110,20 +110,22 @@ export class Pawn extends Piece {
     }
 
     update() {
+        this.map = []
+        for (let i = 0; i < 8; i++) {
+            this.map.push([]);
+            for (let j = 0; j < 8; j++) {
+                this.map[i].push(false);
+            }
+        }
+
         if (this.white) {
-            if (this.moved) {
-                if (this.x + 1 < 8 && this.board.board[this.x + 1][this.y].piece == null) {
-                    this.map[this.x + 1][this.y] = true;
+            if (this.x + 1 < 8 && this.board.board[this.x + 1][this.y].piece == null) {
+                this.map[this.x + 1][this.y] = true;
+                if (!this.moved && this.board.board[this.x + 1][this.y].piece == null) {
+                    this.map[this.x + 2][this.y] = true;
                 }
             }
-            else {
-                if (this.x + 1 < 8 && this.board.board[this.x + 1][this.y].piece == null) {
-                    this.map[this.x][this.y + 1] = true;
-                    if (this.x + 2 < 8 && this.board.board[this.x + 2][this.y].piece == null) {
-                        this.map[this.x + 2][this.y] = true;
-                    }
-                }
-            }
+
 
             if (this.x + 1 < 8 && this.y + 1 < 8 && this.board.board[this.x + 1][this.y + 1].piece != null) {
                 if (!this.board.board[this.x + 1][this.y + 1].piece.white) {
@@ -141,17 +143,10 @@ export class Pawn extends Piece {
             }
         }
         else {
-            if (this.moved) {
-                if (this.x - 1 >= 0 && this.board.board[this.x - 1][this.y].piece == null) {
-                    this.map[this.x - 1][this.y] = true;
-                }
-            }
-            else {
-                if (this.x - 1 >= 0 && this.board.board[this.x - 1][this.y].piece == null) {
-                    this.map[this.x - 1][this.y] = true;
-                    if (this.x - 2 >= 0 && this.board.board[this.x - 2][this.y].piece == null) {
-                        this.map[this.x - 2][this.y] = true;
-                    }
+            if (this.x - 1 >= 0 && this.board.board[this.x - 1][this.y].piece == null) {
+                this.map[this.x - 1][this.y] = true;
+                if (!this.moved && this.board.board[this.x - 2][this.y].piece == null) {
+                    this.map[this.x - 2][this.y] = true;
                 }
             }
 
@@ -209,6 +204,19 @@ export class Knight extends Piece {
     }
 
     update() {
+        this.map = []
+        for (let i = 0; i < 8; i++) {
+            this.map.push([]);
+            for (let j = 0; j < 8; j++) {
+                this.map[i].push(false);
+            }
+        }
+        if (this.white) {
+
+        }
+        else {
+
+        }
 
     }
     reset() {

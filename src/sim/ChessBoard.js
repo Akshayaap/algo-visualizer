@@ -229,6 +229,7 @@ export class ChessBoard {
         if (this.board[i1][j1].piece == null) {
             return;
         }
+        this.board[i1][j1].piece.moved = true;
         this.board[i2][j2].piece = this.board[i1][j1].piece;
         console.log(this.board[i2][j2]);
         console.log(this.board[i1][j1]);
@@ -254,12 +255,7 @@ export class ChessBoard {
                 }
                 if (this.state.turn) {
                     if (this.board[x][y].piece.white) {
-                        if (this.state.chXPrev >= 0 && this.state.chYPrev >= 0) {
-                            this.boardBack[this.state.chXPrev][this.state.chYPrev].style.backgroundColor = (this.state.chXPrev + this.state.chYPrev) % 2 == 0 ? '#666666' : '#ffffff';
-                        }
-                        if (this.state.chX >= 0 && this.state.chY >= 0) {
-                            this.boardBack[this.state.chX][this.state.chY].style.backgroundColor = (this.state.chX + this.state.chY) % 2 == 0 ? '#666666' : '#ffffff';;
-                        }
+
                         this.boardBack[x][y].style.backgroundColor = '#0000ff';
                         this.state.chXPrev = this.state.chX;
                         this.state.chYPrev = this.state.chY;
@@ -267,14 +263,22 @@ export class ChessBoard {
                         this.state.chX = x;
                         this.state.chY = y;
                         this.state.state = State.CHOOSEN;
+                        if (this.state.chXPrev >= 0 && this.state.chYPrev >= 0) {
+                            this.boardBack[this.state.chXPrev][this.state.chYPrev].style.backgroundColor = (this.state.chXPrev + this.state.chYPrev) % 2 == 0 ? '#666666' : '#ffffff';
+                        }
+                        if (this.state.chX >= 0 && this.state.chY >= 0) {
+                            this.boardBack[this.state.chX][this.state.chY].style.backgroundColor = (this.state.chX + this.state.chY) % 2 == 0 ? '#666666' : '#ffffff';;
+                        }
                         for (let i = 0; i < 8; i++) {
                             for (let j = 0; j < 8; j++) {
                                 if (this.board[x][y].piece.map[i][j]) {
-                                    //set Orange color
                                     this.boardBack[i][j].style.backgroundColor = '#ffff00';
+                                } else {
+                                    this.boardBack[i][j].style.backgroundColor = (i + j) % 2 == 0 ? '#666666' : '#ffffff';;
                                 }
                             }
                         }
+
                     }
 
                 } else {
@@ -297,8 +301,9 @@ export class ChessBoard {
                         for (let i = 0; i < 8; i++) {
                             for (let j = 0; j < 8; j++) {
                                 if (this.board[x][y].piece.map[i][j]) {
-                                    //set Orange color
                                     this.boardBack[i][j].style.backgroundColor = '#ffff00';
+                                } else {
+                                    this.boardBack[i][j].style.backgroundColor = (i + j) % 2 == 0 ? '#666666' : '#ffffff';;
                                 }
                             }
                         }
