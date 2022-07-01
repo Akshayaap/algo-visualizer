@@ -42,13 +42,9 @@ export class SimGravity {
                     this.objects[j] = null;
                 }
             }
-        }
-
-        for (let i = 0; i < this.objects.length; i++) {
-            if (this.objects[i] == null)
-                continue;
             this.objects[i].update();
         }
+
     }
 
     draw(p5) {
