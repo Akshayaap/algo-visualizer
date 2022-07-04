@@ -13,7 +13,7 @@ export class SimGravity {
             let y = Math.random() * window.innerHeight;
             let vx = Math.random() * .8 - .4;
             let vy = Math.random() * .8 - .4;
-            let mass = Math.random() * 200;
+            let mass = Math.random() * 400;
             let radius = 4 * Math.cbrt(mass);
 
             this.objects.push(new Objects(new Vec2(x, y), new Vec2(vx, vy), mass, radius, 255));
@@ -28,19 +28,11 @@ export class SimGravity {
 
     stepForward() {
         for (let i = 0; i < this.objects.length; i++) {
-            for (let j = i + 1; j < this.objects.length; j++) {
-
-                if (this.objects[i] == null)
-                    continue;
-                if (this.objects[j] == null) {
+            for (let j = 0; j < this.objects.length; j++) {
+                if (i == j) {
                     continue;
                 }
-                if (this.objects[i] === this.objects[j])
-                    continue;
                 this.objects[i].interact(this.objects[j]);
-                if (this.objects[j].consumed) {
-                    this.objects[j] = null;
-                }
             }
             this.objects[i].update();
         }
@@ -49,9 +41,6 @@ export class SimGravity {
 
     draw(p5) {
         for (let i = 0; i < this.objects.length; i++) {
-            if (this.objects[i] == null) {
-                return;
-            }
             this.objects[i].draw(p5);
         }
     }

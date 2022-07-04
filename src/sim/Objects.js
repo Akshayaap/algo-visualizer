@@ -181,6 +181,9 @@ export class Objects {
         }
         let sDist = (this.pos.x - other.pos.x) * (this.pos.x - other.pos.x) + (this.pos.y - other.pos.y) * (this.pos.y - other.pos.y); //Math.sqrt(Math.pow(this.pos.x - other.pos.x, 2) + Math.pow(this.pos.y - other.pos.y, 2));
 
+        if (sDist < 10) {
+            return
+        }
         /**if ((this.radius + other.radius) * (this.radius + other.radius) > sDist) {
             this.mass += other.mass;
             this.force.add(other.force);
@@ -189,7 +192,7 @@ export class Objects {
             return;
         }*/
 
-        let force = (this.mass * other.mass) / sDist * .2;
+        let force = (this.mass * other.mass) / sDist * .4;
 
         let direction = new Vec2(other.pos.x - this.pos.x, other.pos.y - this.pos.y);
 
@@ -197,9 +200,10 @@ export class Objects {
         direction.normalize();
 
         direction.scal(force);
+
+        //this.force.sub(direction);
         this.force.add(direction);
     }
-
 
     update() {
 

@@ -21,9 +21,8 @@ const sim = new SimPlanet();
 
 const Planets = (props) => {
     const setup = (p5, canvasParentRef) => {
-        p5.createCanvas(sizes.width, sizes.height).parent(canvasParentRef);
+        //p5.createCanvas(sizes.width, sizes.height);
         p5.fill(255);
-
         sim.addPlanet(new Planet(new Vec2(window.innerWidth / 2 - 500, window.innerHeight / 2), new Vec2(0, 2), 50000, [25, 84, 65]));
         sim.addPlanet(new Planet(new Vec2(window.innerWidth / 2 + 400, window.innerHeight / 2), new Vec2(0, -2), 10000, [255, 45, 12]));
     };
