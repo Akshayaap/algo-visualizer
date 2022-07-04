@@ -24,13 +24,15 @@ export class Player {
         this.attackMap = [];
         this.isCheck = false;
         this.isCheckMate = false;
-        this.opponent = this.white ? this.board.playerBlack : this.board.playerWhite;
 
         this.init = this.init.bind(this);
         this.reset = this.reset.bind(this);
         this.update = this.update.bind(this);
     }
 
+    setOpp(opp) {
+        this.opponent = opp;
+    }
     init() {
         if (this.white) {
             this.pieces = {
@@ -47,7 +49,7 @@ export class Player {
                 rook0: new Rook(this.board, 0, 0, true),
                 knight0: new Knight(this.board, 0, 1, true),
                 bishop0: new Bishop(this.board, 0, 2, true),
-                king: new King(this.board, 0, 3, true),
+                king: new King(this.board, 0, 3, true, this),
 
                 queen: new Queen(this.board, 0, 4, true),
                 bishop1: new Bishop(this.board, 0, 5, true),
@@ -70,7 +72,7 @@ export class Player {
                 rook0: new Rook(this.board, 7, 0, false),
                 knight0: new Knight(this.board, 7, 1, false),
                 bishop0: new Bishop(this.board, 7, 2, false),
-                king: new King(this.board, 7, 3, false),
+                king: new King(this.board, 7, 3, false, this),
 
                 queen: new Queen(this.board, 7, 4, false),
                 bishop1: new Bishop(this.board, 7, 5, false),
@@ -152,6 +154,8 @@ export class ChessBoard {
 
         this.playerWhite = new Player(this, true);
         this.playerBlack = new Player(this, false);
+        this.playerBlack.setOpp(this.playerWhite);
+        this.playerWhite.setOpp(this.playerBlack);
 
         this.boardUI = [];
         this.boardBack = [];
@@ -254,6 +258,7 @@ export class ChessBoard {
         }
         this.playerWhite.update();
         this.playerBlack.update();
+
 
     }
 

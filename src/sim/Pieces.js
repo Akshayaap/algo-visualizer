@@ -83,7 +83,7 @@ export class Pawn extends Piece {
     constructor(board, x, y, white) {
         super(x, y, white);
         this.board = board;
-        this.type = 0;
+        this.type = 1;
         if (this.white) {
             this.img = whitePawn;
         }
@@ -175,7 +175,7 @@ export class Knight extends Piece {
     constructor(board, x, y, white) {
         super(x, y, white);
         this.board = board;
-        this.type = 0;
+        this.type = 3;
 
 
         if (this.white) {
@@ -299,7 +299,7 @@ export class Rook extends Piece {
     constructor(board, x, y, white) {
         super(x, y, white);
         this.board = board;
-        this.type = 0;
+        this.type = 5;
 
         if (this.white) {
             this.img = whiteRook;
@@ -404,7 +404,7 @@ export class Bishop extends Piece {
     constructor(board, x, y, white) {
         super(x, y, white);
         this.board = board;
-        this.type = 0;
+        this.type = 3;
         if (this.white) {
             this.img = whiteBishop;
         }
@@ -519,7 +519,7 @@ export class Queen extends Piece {
     constructor(board, x, y, white) {
         super(x, y, white);
         this.board = board;
-        this.type = 0;
+        this.type = 9;
         if (this.white) {
             this.img = whiteQueen;
         }
@@ -696,10 +696,11 @@ export class Queen extends Piece {
 }
 
 export class King extends Piece {
-    constructor(board, x, y, white) {
+    constructor(board, x, y, white, player) {
         super(x, y, white);
+        this.player = player;
         this.board = board;
-        this.type = 0;
+        this.type = 1000;
         if (this.white) {
             this.img = whiteKing;
         }
@@ -732,51 +733,71 @@ export class King extends Piece {
         let j = this.y;
         if (i + 1 < 8)
             if (this.board.board[i + 1][j].piece == null) {
-                this.map[i + 1][j] = true;
+                if (!this.player.attackMap[i + 1][j]) {
+                    this.map[i + 1][j] = true;
+                }
             }
             else {
                 if (this.board.board[i + 1][j].piece.white != this.white) {
-                    this.map[i + 1][j] = true;
+                    if (!this.player.attackMap[i + 1][j]) {
+                        this.map[i + 1][j] = true;
+                    }
                 }
             }
 
         if (i - 1 >= 0) {
             if (this.board.board[i - 1][j].piece == null) {
-                this.map[i - 1][j] = true;
+                if (!this.player.attackMap[i - 1][j]) {
+                    this.map[i - 1][j] = true;
+                }
             }
             else {
                 if (this.board.board[i - 1][j].piece.white != this.white) {
-                    this.map[i - 1][j] = true;
+                    if (!this.player.attackMap[i - 1][j]) {
+                        this.map[i - 1][j] = true;
+                    }
                 }
             }
         }
         if (j + 1 < 8) {
             if (this.board.board[i][j + 1].piece == null) {
-                this.map[i][j + 1] = true;
+                if (!this.player.attackMap[i][j + 1]) {
+                    this.map[i][j + 1] = true;
+                }
             }
             else {
                 if (this.board.board[i][j + 1].piece.white != this.white) {
-                    this.map[i][j + 1] = true;
+                    if (!this.player.attackMap[i][j + 1]) {
+                        this.map[i][j + 1] = true;
+                    }
                 }
             }
         }
         if (j - 1 >= 0) {
             if (this.board.board[i][j - 1].piece == null) {
-                this.map[i][j - 1] = true;
+                if (!this.player.attackMap[i][j - 1]) {
+                    this.map[i][j - 1] = true;
+                }
             }
             else {
                 if (this.board.board[i][j - 1].piece.white != this.white) {
-                    this.map[i][j - 1] = true;
+                    if (!this.player.attackMap[i][j - 1]) {
+                        this.map[i][j - 1] = true;
+                    }
                 }
             }
         }
         if (i + 1 < 8 && j + 1 < 8) {
             if (this.board.board[i + 1][j + 1].piece == null) {
-                this.map[i + 1][j + 1] = true;
+                if (!this.player.attackMap[i + 1][j + 1]) {
+                    this.map[i + 1][j + 1] = true;
+                }
             }
             else {
                 if (this.board.board[i + 1][j + 1].piece.white != this.white) {
-                    this.map[i + 1][j + 1] = true;
+                    if (!this.player.attackMap[i + 1][j + 1]) {
+                        this.map[i + 1][j + 1] = true;
+                    }
                 }
             }
         }
