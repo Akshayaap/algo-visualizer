@@ -16,19 +16,44 @@ import whitePawn from '../assets/chess/white-pawn.png';
 
 
 
-
+/**
+ * This class holds overoll state of the game.
+ * 
+ * 
+ */
 export class State {
+    //INVALID state
     static INVALID = 0;
+
+    //NORMAL state is state when no piece is selected
     static NORMAL = 1;
-    static CHOOSEN = 10;
+
+    // SELECTED is state to indicate that a piece has been selected
+    static SELECTED = 10;
+
+    //Various situations for game
+    static STALL = 100;
+    static WHITE_CHECK = 101;
+    static BLACK_CHECK = 102;
+    static WHITE_CHECKMATE = 103;
+    static BLACK_CHECKMATE = 104;
+
     constructor() {
         this.state = State.NORMAL;
+
+        //current selected position on board
         this.chX = -1;
         this.chY = -1;
-        this.turn = true; //true for white, false for black
+
+        //turn indicates which player's turn it is
+        //true for white, false for black
+        this.turn = true;
+
+        //previous selected position on board
         this.chXPrev = -1;
         this.chYPrev = -1;
 
+        //reset all the information in borad
         this.reset = this.reset.bind(this);
     }
     reset() {

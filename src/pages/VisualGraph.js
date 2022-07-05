@@ -12,9 +12,9 @@ class VisualGraph extends Component {
     }
     render() {
         return (
-            <>
-                Hellow World
-            </>
+            <div>
+                <h1>Visual Graph</h1>
+            </div>
         )
     }
 

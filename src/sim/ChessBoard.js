@@ -1,20 +1,9 @@
 
-import { State, Piece, Pawn, Bishop, Knight, Rook, Queen, King } from './Pieces';
+import { State, Pawn, Bishop, Knight, Rook, Queen, King } from './Pieces';
 
-import blackKing from '../assets/chess/black-king.png';
-import whiteKing from '../assets/chess/white-king.png';
-import blackQueen from '../assets/chess/black-queen.png';
-import whiteQueen from '../assets/chess/white-queen.png';
-import blackBishop from '../assets/chess/black-bishop.png';
-import whiteBishop from '../assets/chess/white-bishop.png';
-import blackKnight from '../assets/chess/black-knight.png';
-import whiteKnight from '../assets/chess/white-knight.png';
-import blackRook from '../assets/chess/black-rook.png';
-import whiteRook from '../assets/chess/white-rook.png';
-import blackPawn from '../assets/chess/black-pawn.png';
-import whitePawn from '../assets/chess/white-pawn.png';
-
-
+//A class to represent player
+//A player has a color and a set of pieces
+//A player can move pieces and check if the move is valid
 
 export class Player {
     constructor(board, white) {
@@ -22,6 +11,7 @@ export class Player {
         this.board = board;
         this.pieces = null;
         this.attackMap = [];
+        this.threatMap = [];
         this.isCheck = false;
         this.isCheckMate = false;
 
@@ -167,6 +157,10 @@ export class ChessBoard {
         this.move = this.move.bind(this);
         this.init = this.init.bind(this);
         this.clearState = this.clearState.bind(this);
+        this.isValid = this.isValid.bind(this);
+
+        this.selectUI = this.selectUI.bind(this);
+        this.moveUI = this.moveUI.bind(this);
     }
 
     init() {
@@ -287,6 +281,80 @@ export class ChessBoard {
     }
 
     onClick(x, y) {
+        if (this.board[x][y] == null) {
+            if (this.state.chX != -1 && this.state.chY != -1) {
+                this.boardBack[this.state.chX][this.state.chY].style.backgroundColor = (this.state.chX + this.state.chY) % 2 == 0 ? '#666666' : '#ffffff';
+            }
+            if (this.state.chXPrev != -1 && this.state.chYPrev != -1) {
+                this.boardBack[this.state.chXPrev][ythis.state.chYPrev].style.backgroundColor = (this.state.chXPrev + this.state.chYPrev) % 2 == 0 ? '#666666' : '#ffffff';
+            }
+            return;
+        }
+        switch (this.state.state) {
+            case State.NORMAL:
+                if (this.state.turn) {
+                    if (!this.board[x][y].piece.white) {
+                        if (this.state.chX != -1 && this.state.chY != -1) {
+                            this.boardBack[this.state.chX][this.state.chY].style.backgroundColor = (this.state.chX + this.state.chY) % 2 == 0 ? '#666666' : '#ffffff';
+                        }
+                        if (this.state.chXPrev != -1 && this.state.chYPrev != -1) {
+                            this.boardBack[this.state.chXPrev][ythis.state.chYPrev].style.backgroundColor = (this.state.chXPrev + this.state.chYPrev) % 2 == 0 ? '#666666' : '#ffffff';
+                        }
+                        return;
+                    }
+                    this.state.chX = -1;
+                    this.state.chY = -1;
+                    this.state.chXPrev = x;
+                    this.state.chYPrev = y;
+
+                    this.state.state = State.SELECTED;
+                    this.boardBack[x][y].style.backgroundColor = '#ff0000';
+
+                } else {
+                    if (this.board[x][y].piece.white) {
+                        if (this.state.chX != -1 && this.state.chY != -1) {
+                            this.boardBack[this.state.chX][this.state.chY].style.backgroundColor = (this.state.chX + this.state.chY) % 2 == 0 ? '#666666' : '#ffffff';
+                        }
+                        if (this.state.chXPrev != -1 && this.state.chYPrev != -1) {
+                            this.boardBack[this.state.chXPrev][ythis.state.chYPrev].style.backgroundColor = (this.state.chXPrev + this.state.chYPrev) % 2 == 0 ? '#666666' : '#ffffff';
+                        }
+                        return;
+                    }
+                    this.state.chX = -1;
+                    this.state.chY = -1;
+                    this.state.chXPrev = x;
+                    this.state.chYPrev = y;
+
+                    this.state.state = State.SELECTED;
+                    this.boardBack[x][y].style.backgroundColor = '#ff0000';
+                }
+                break;
+            case State.SELECTED:
+                if (this.state.turn) {
+
+                    this.state.chX = -1;
+                    this.state.chY = -1;
+                } else {
+
+                }
+                break;
+            case State.STALL:
+                break;
+            case State.WHITE_CHECK:
+                break;
+            case State.BLACK_CHECK:
+                break;
+            case State.WHITE_CHECKMATE:
+                break;
+            case State.BLACK_CHECKMATE:
+                break;
+            case State.INVALID:
+                break;
+
+            default:
+                break;
+
+        }
         switch (this.state.state) {
             case State.NORMAL:
                 if (this.board[x][y].piece == null) {
@@ -401,6 +469,14 @@ export class ChessBoard {
         this.state.chXPrev = -1;
         this.state.chYPrev = -1;
     }
+
+    isValid() {
+
+    }
+    selectUI(x, y) {
+
+    }
+
 }
 
 export class Box {
@@ -427,4 +503,3 @@ export class Box {
     reset() {
     }
 }
-
