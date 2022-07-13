@@ -3,6 +3,7 @@ import './projects.css';
 import chessLogo from './../assets/chess/chess.png';
 import h6502Logo from './../assets/6502/6502.png';
 import SortingLogo from './../assets/sorting/sorting.png';
+import SquareLogo from './../assets/square/square.png';
 
 import { NavLink } from 'react-router-dom';
 
@@ -62,6 +63,24 @@ const Projects = () => {
                     </div>
 
                     <NavLink to="/sorting" >
+                        <button className="project-button">
+                            <i className="fas fa-arrow-right"></i>
+                        </button>
+                    </NavLink>
+                </div>
+                <div className="project-card">
+                    <div className='project-details'>
+                        <div className="project-card-image">
+                            <img src={SquareLogo} alt="project-image" width={200} height={200} />
+                        </div>
+                        <div className="project-card-content">
+                            <h3>Square Spiral</h3>
+                            <p>Viualization of Square Spiral</p>
+
+                        </div>
+                    </div>
+
+                    <NavLink to="/square" >
                         <button className="project-button">
                             <i className="fas fa-arrow-right"></i>
                         </button>

@@ -159,8 +159,6 @@ export class ChessBoard {
         this.clearState = this.clearState.bind(this);
         this.isValid = this.isValid.bind(this);
 
-        this.selectUI = this.selectUI.bind(this);
-        this.moveUI = this.moveUI.bind(this);
     }
 
     init() {
@@ -286,7 +284,7 @@ export class ChessBoard {
                 this.boardBack[this.state.chX][this.state.chY].style.backgroundColor = (this.state.chX + this.state.chY) % 2 == 0 ? '#666666' : '#ffffff';
             }
             if (this.state.chXPrev != -1 && this.state.chYPrev != -1) {
-                this.boardBack[this.state.chXPrev][ythis.state.chYPrev].style.backgroundColor = (this.state.chXPrev + this.state.chYPrev) % 2 == 0 ? '#666666' : '#ffffff';
+                this.boardBack[this.state.chXPrev][this.state.chYPrev].style.backgroundColor = (this.state.chXPrev + this.state.chYPrev) % 2 == 0 ? '#666666' : '#ffffff';
             }
             return;
         }
@@ -298,7 +296,7 @@ export class ChessBoard {
                             this.boardBack[this.state.chX][this.state.chY].style.backgroundColor = (this.state.chX + this.state.chY) % 2 == 0 ? '#666666' : '#ffffff';
                         }
                         if (this.state.chXPrev != -1 && this.state.chYPrev != -1) {
-                            this.boardBack[this.state.chXPrev][ythis.state.chYPrev].style.backgroundColor = (this.state.chXPrev + this.state.chYPrev) % 2 == 0 ? '#666666' : '#ffffff';
+                            this.boardBack[this.state.chXPrev][this.state.chYPrev].style.backgroundColor = (this.state.chXPrev + this.state.chYPrev) % 2 == 0 ? '#666666' : '#ffffff';
                         }
                         return;
                     }
@@ -316,7 +314,7 @@ export class ChessBoard {
                             this.boardBack[this.state.chX][this.state.chY].style.backgroundColor = (this.state.chX + this.state.chY) % 2 == 0 ? '#666666' : '#ffffff';
                         }
                         if (this.state.chXPrev != -1 && this.state.chYPrev != -1) {
-                            this.boardBack[this.state.chXPrev][ythis.state.chYPrev].style.backgroundColor = (this.state.chXPrev + this.state.chYPrev) % 2 == 0 ? '#666666' : '#ffffff';
+                            this.boardBack[this.state.chXPrev][this.state.chYPrev].style.backgroundColor = (this.state.chXPrev + this.state.chYPrev) % 2 == 0 ? '#666666' : '#ffffff';
                         }
                         return;
                     }
@@ -330,12 +328,17 @@ export class ChessBoard {
                 }
                 break;
             case State.SELECTED:
-                if (this.state.turn) {
-
-                    this.state.chX = -1;
-                    this.state.chY = -1;
-                } else {
-
+                if (this.board[this.state.chXPrev][this.state.chYPrev].piece.map[x][y]) {
+                    this.state.chX = x;
+                    this.state.chY = y;
+                    this.move(this.state.chXPrev, this.state.chYPrev, this.state.chX, this.state.chY);
+                    this.state.state = State.NORMAL;
+                }
+                else {
+                    if (this.board[x][y].piece.white == this.turn) {
+                        this.state.chXPrev = x;
+                        this.state.chYPrev = y;
+                    }
                 }
                 break;
             case State.STALL:

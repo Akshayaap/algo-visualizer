@@ -13,7 +13,7 @@ const Footer = () => {
             <div className="footer-content">
                 <ul className='social'>
                     <li className='social-item'>
-                        <a href='https://www.twitter.com/_the_akshay'>
+                        <a href='https://www.twitter.com/VitaminnCPP'>
                             <div className='social-icon'></div>
                         </a>
                         <div className='social-text'>Twitter</div>
@@ -26,7 +26,7 @@ const Footer = () => {
                         <div className='social-text'>Gmail</div>
                     </li>
                     <li className='social-item'>
-                        <a href='https://www.twitter.com/Akshayaap'>
+                        <a href='https://www.github.com/Akshayaap'>
                             <div className='social-icon'></div>
                         </a>
                         <div className='social-text'>GitHub</div>

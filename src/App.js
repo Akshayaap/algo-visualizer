@@ -16,6 +16,7 @@ import Planets from './pages/Planets';
 import VisualGraph from './pages/VisualGraph';
 import VisualSort from './pages/VisualSort';
 import Chess from './pages/Chess';
+import SquareSpiral from './pages/SquareSpiral';
 
 class App extends Component {
 
@@ -44,6 +45,7 @@ class App extends Component {
               <Route path="/about" element={<About />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/sorting" element={<VisualSort />} />
+              <Route path="/square" element={<SquareSpiral />} />
             </Routes>
           </div>
         </Router>

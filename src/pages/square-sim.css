@@ -1,0 +1,14 @@
+table {
+    border-collapse: collapse;
+}
+
+td {
+    border: 1px solid #2a9;
+    margin: 5px;
+    padding: 10px;
+}
+
+.square {
+    margin-left: 25px;
+    margin-right: 25px;
+}

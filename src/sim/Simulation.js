@@ -11,8 +11,8 @@ export class SimGravity {
         for (let i = 0; i < this.count; i++) {
             let x = Math.random() * window.innerWidth;
             let y = Math.random() * window.innerHeight;
-            let vx = Math.random() * .8 - .4;
-            let vy = Math.random() * .8 - .4;
+            let vx = Math.random() * .1 - .05;
+            let vy = Math.random() * .1 - .05;
             let mass = Math.random() * 400;
             let radius = 4 * Math.cbrt(mass);
 
