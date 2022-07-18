@@ -17,22 +17,21 @@ class VisualSort extends Component {
     render() {
         return (
             <div className='sorting'>
+                <center>
                 <div className='death-div'>
-                    <img id='death' src="https://en.meming.world/images/en/0/02/So_you_have_chosen..._death..jpg" />
                     <div id='close' onClick={() => {
-
                         document.querySelector('.death-div').style.display = 'none';
                     }}>close</div>
-                </div>
+                    <img id='death' src="https://en.meming.world/images/en/0/02/So_you_have_chosen..._death..jpg" />
+                </div></center>
                 <div className='control'>
-                    <button onClick={() => this.sim.sort()}>Sort</button>
-                    <button onClick={() => this.sim.shuffle()}>Generate</button>
+                    <button onClick={() => {this.sim.sort() }}>Sort</button>
+                    <button onClick={() => {this.sim.shuffle() }}>Generate</button>
                     <button onClick={() => { this.sim.mergeSort() }}>Merge Sort</button>
                     <button onClick={() => { this.sim.quickSort() }}>Quick Sort</button>
                     <button onClick={() => { document.querySelector('.death-div').style.display = 'flex'; }}>Bogo Sort</button>
                     <button onClick={() => { this.sim.insertionSort() }}>Insertion Sort</button>
                     <button onClick={() => { this.sim.selectionSort() }}>Selection Sort</button>
-
                 </div>
                 <div className='visual'>
                     {
