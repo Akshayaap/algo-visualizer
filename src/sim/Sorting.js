@@ -11,7 +11,7 @@ class Sorting {
         this.generateArray = this.generateArray.bind(this);
         this.getElements = this.getElements.bind(this);
         this.shuffle = this.shuffle.bind(this);
-        this.sort = this.sort.bind(this);
+        this.bubbleSort = this.bubbleSort.bind(this);
         this.mergeSort = this.mergeSort.bind(this);
         this.merge = this.merge.bind(this);
         this.mergeSortHelper = this.mergeSortHelper.bind(this);
@@ -26,7 +26,6 @@ class Sorting {
         this.array = [];
         for (let i = 0; i < this.size; i++) {
             this.array.push(Math.floor(Math.random() * 800) + 1);
-
         }
     }
 
@@ -45,7 +44,7 @@ class Sorting {
         }
     }
 
-    async sort() {
+    async bubbleSort() {
         //bubble sort algorithm with await function
         for (let i = 0; i < this.size; i++) {
             for (let j = 0; j < this.size - i - 1; j++) {
