@@ -5,7 +5,7 @@ import { Sorting } from '../sim/Sorting';
 class VisualSort extends Component {
     constructor(props) {
         super(props)
-        this.size = 100;
+        this.size = 50;
         this.sim = new Sorting(this.size);
         // console.log(this.size);
     }
@@ -25,13 +25,13 @@ class VisualSort extends Component {
                     <img id='death' src="https://en.meming.world/images/en/0/02/So_you_have_chosen..._death..jpg" />
                 </div></center>
                 <div className='control'>
-                    <button onClick={() => {this.sim.shuffle() }}>Generate</button>
-                    <button onClick={() => {this.sim.bubbleSort() }}>Bubble Sort</button>
-                    <button onClick={() => { this.sim.mergeSort() }}>Merge Sort</button>
-                    <button onClick={() => { this.sim.quickSort() }}>Quick Sort</button>
-                    <button onClick={() => { document.querySelector('.death-div').style.display = 'flex'; }}>Bogo Sort</button>
-                    <button onClick={() => { this.sim.insertionSort() }}>Insertion Sort</button>
-                    <button onClick={() => { this.sim.selectionSort() }}>Selection Sort</button>
+                    <button onClick={() => {if(!this.sim.isRunnning){this.sim.shuffle()}}}>Generate</button>
+                    <button onClick={() => {if(!this.sim.isRunnning){this.sim.bubbleSort()}}}>Bubble Sort</button>
+                    <button onClick={() => {if(!this.sim.isRunnning){this.sim.mergeSort()}}}>Merge Sort</button>
+                    <button onClick={() => {if(!this.sim.isRunnning){this.sim.quickSort()}}}>Quick Sort</button>
+                    <button onClick={() => {if(!this.sim.isRunnning){document.querySelector('.death-div').style.display = 'flex';}}}>Bogo Sort</button>
+                    <button onClick={() => {if(!this.sim.isRunnning){this.sim.insertionSort()}}}>Insertion Sort</button>
+                    <button onClick={() => {if(!this.sim.isRunnning){this.sim.selectionSort()}}}>Selection Sort</button>
                 </div>
                 <div className='visual'>
                     {
