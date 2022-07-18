@@ -1,5 +1,3 @@
-
-
 import React, { Component } from 'react';
 import './sorting.css';
 import { Sorting } from '../sim/Sorting';
@@ -9,10 +7,8 @@ class VisualSort extends Component {
         super(props)
         this.size = 100;
         this.sim = new Sorting(this.size);
-        console.log(this.size);
-
+        // console.log(this.size);
     }
-
 
     componentDidMount() {
         this.sim.getElements();

@@ -1,11 +1,4 @@
-
-
 import { sleep } from '../util/Util.js';
-
-
-
-
-
 
 class Sorting {
     constructor(size) {
@@ -13,8 +6,6 @@ class Sorting {
         this.array = [];
         this.elements = [];
         this.generateArray();
-
-
 
         //this bindings
         this.generateArray = this.generateArray.bind(this);
@@ -90,21 +81,16 @@ class Sorting {
     }
 
     async mergeSortHelper(arr, left, right) {
-
-
         if (left < right) {
             console.log('here we go');
             let middle = Math.floor((left + right) / 2);
             await this.mergeSortHelper(arr, left, middle);
             await this.mergeSortHelper(arr, middle + 1, right);
             await this.merge(arr, left, middle, right);
-
         }
     }
 
     async merge(arr, left, middle, right) {
-
-
         let leftArr = arr.slice(left, middle + 1);
         let rightArr = arr.slice(middle + 1, right + 1);
 
@@ -153,8 +139,6 @@ class Sorting {
 
     //quick sort algorithm with await function
     async quickSort() {
-
-
         await this.quickSortHelper(this.array, 0, this.size - 1);
     }
 
