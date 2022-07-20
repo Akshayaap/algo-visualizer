@@ -1,5 +1,3 @@
-
-
 import React, { Component } from 'react';
 import './sorting.css';
 import { Sorting } from '../sim/Sorting';
@@ -7,12 +5,10 @@ import { Sorting } from '../sim/Sorting';
 class VisualSort extends Component {
     constructor(props) {
         super(props)
-        this.size = 100;
+        this.size = 20;
         this.sim = new Sorting(this.size);
-        console.log(this.size);
-
+        // console.log(this.size);
     }
-
 
     componentDidMount() {
         this.sim.getElements();
@@ -21,29 +17,30 @@ class VisualSort extends Component {
     render() {
         return (
             <div className='sorting'>
+                <center>
                 <div className='death-div'>
-                    <img id='death' src="https://en.meming.world/images/en/0/02/So_you_have_chosen..._death..jpg" />
                     <div id='close' onClick={() => {
-
                         document.querySelector('.death-div').style.display = 'none';
                     }}>close</div>
-                </div>
+                    <img id='death' src="https://en.meming.world/images/en/0/02/So_you_have_chosen..._death..jpg" />
+                </div></center>
                 <div className='control'>
-                    <button onClick={() => this.sim.sort()}>Sort</button>
-                    <button onClick={() => this.sim.shuffle()}>Generate</button>
-                    <button onClick={() => { this.sim.mergeSort() }}>Merge Sort</button>
-                    <button onClick={() => { this.sim.quickSort() }}>Quick Sort</button>
-                    <button onClick={() => { document.querySelector('.death-div').style.display = 'flex'; }}>Bogo Sort</button>
-                    <button onClick={() => { this.sim.insertionSort() }}>Insertion Sort</button>
-                    <button onClick={() => { this.sim.selectionSort() }}>Selection Sort</button>
-
+                    <button onClick={() => {if(!this.sim.isRunnning){this.sim.shuffle()}}}>Generate</button>
+                    <button onClick={() => {if(!this.sim.isRunnning && !this.sim.isSorted()){this.sim.bubbleSort()}}}>Bubble Sort</button>
+                    <button onClick={() => {if(!this.sim.isRunnning && !this.sim.isSorted()){this.sim.mergeSort()}}}>Merge Sort</button>
+                    <button onClick={() => {if(!this.sim.isRunnning && !this.sim.isSorted()){this.sim.quickSort()}}}>Quick Sort</button>
+                    <button onClick={() => {if(!this.sim.isRunnning && !this.sim.isSorted()){document.querySelector('.death-div').style.display = 'flex';}}}>Bogo Sort</button>
+                    <button onClick={() => {if(!this.sim.isRunnning && !this.sim.isSorted()){this.sim.insertionSort()}}}>Insertion Sort</button>
+                    <button onClick={() => {if(!this.sim.isRunnning && !this.sim.isSorted()){this.sim.selectionSort()}}}>Selection Sort</button>
                 </div>
+
                 <div className='visual'>
                     {
                         this.sim.array.map((element, index) => {
                             return (
                                 <div id={`bar-${index}`} className='array-bar' key={index}>
-                                </div>);
+                                </div>
+                            );
                         })
                     }
                 </div>

@@ -5,11 +5,12 @@
 
 .visual {
     width: 100%;
-    height: 100vh;
+    height: 800px;
     display: flex;
     flex-direction: row;
     justify-content: center;
-    align-items: baseline;
+    transform: rotate(180deg);
+    transform: scaleY(-1);
 }
 
 .array-bar {
@@ -24,24 +25,32 @@
     display: none;
     zoom: 2;
     border-radius: 5px;
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    justify-content: center;
-    align-items: center;
-
+    margin-top: 200px;
+    margin-left: auto;
+    position: absolute;
 }
 
+#death{
+    align-items: center;
+    justify-content: center;
+    margin-left: 500px;
+    z-index: 10;
+}
 
 #close {
-    position: absolute;
-    top: 30px;
-    right: 30px;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  position: absolute;
+  top: 8px;
+  right: 16px;
+  background-color: white;
+  color: #000;
+  padding-right: 10px;
+  padding-left: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-radius: 5px;
+  z-index: 11;
+}
+
+#close:hover{
     cursor: pointer;
 }
