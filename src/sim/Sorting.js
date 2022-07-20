@@ -219,7 +219,9 @@ class Sorting {
         for (let i = 1; i < this.size; i++) {
 
             let j = i;
-            this.elements[i + 1].style.backgroundColor = '#ff0000';
+            if(i+1 < this.elements.length){
+                this.elements[i+1].style.backgroundColor = '#ff0000';
+            }
             while (j > 0 && this.array[j] < this.array[j - 1]) {
                 [this.array[j], this.array[j - 1]] = [this.array[j - 1], this.array[j]];
                 this.elements[j].style.height = this.array[j] + 'px';
@@ -231,8 +233,11 @@ class Sorting {
                 this.elements[j - 1].style.backgroundColor = '#00ffff';
                 j--;
             }
+            
 
-            this.elements[i + 1].style.backgroundColor = '#00ffff';
+            if(i+1 < this.elements.length){
+                this.elements[i+1].style.backgroundColor = '#00ffff';
+            }
         }
         this.isRunnning = 0;
     }
