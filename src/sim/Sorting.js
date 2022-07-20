@@ -21,6 +21,18 @@ class Sorting {
         this.quickSortHelper = this.quickSortHelper.bind(this);
         this.partition = this.partition.bind(this);
         this.selectionSort = this.selectionSort.bind(this);
+        this.isSorted = this.isSorted.bind(this);
+    }
+
+    isSorted() {
+        for(let i=0; i < this.array.length; i++){
+            if(this.array[i] > this.array[i+1]){
+                console.log('not sorted')
+                return false;
+            }
+        }
+        console.log('sorted')
+        return true;
     }
 
     generateArray() {
@@ -37,6 +49,7 @@ class Sorting {
             this.elements[i].style.width = 80 / this.size + '%';
         }
     }
+
     shuffle() {
         this.generateArray();
         for (let i = 0; i < this.size; i++) {
@@ -76,11 +89,9 @@ class Sorting {
         this.isRunnning = 0;
     }
 
-
     async mergeSort() {
         this.isRunnning = 1;
         await this.mergeSortHelper(this.array, 0, this.size - 1);
-        // console.log(this.array);
         this.isRunnning = 0;
     }
 
@@ -147,7 +158,6 @@ class Sorting {
         this.isRunnning = 0;
     }
 
-
     //quich sort helper
     async quickSortHelper(arr, low, high) {
         if (low < high) {
@@ -156,7 +166,6 @@ class Sorting {
             await this.quickSortHelper(arr, pi + 1, high);
         }
     }
-
 
     //partition function
     async partition(arr, start, end) {
@@ -188,7 +197,6 @@ class Sorting {
         this.elements[end].style.backgroundColor = '#00ffff';
         return pivotIndex;
     }
-
 
     //bogo sort
     async bogoSort() {

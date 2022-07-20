@@ -26,12 +26,12 @@ class VisualSort extends Component {
                 </div></center>
                 <div className='control'>
                     <button onClick={() => {if(!this.sim.isRunnning){this.sim.shuffle()}}}>Generate</button>
-                    <button onClick={() => {if(!this.sim.isRunnning){this.sim.bubbleSort()}}}>Bubble Sort</button>
-                    <button onClick={() => {if(!this.sim.isRunnning){this.sim.mergeSort()}}}>Merge Sort</button>
-                    <button onClick={() => {if(!this.sim.isRunnning){this.sim.quickSort()}}}>Quick Sort</button>
-                    <button onClick={() => {if(!this.sim.isRunnning){document.querySelector('.death-div').style.display = 'flex';}}}>Bogo Sort</button>
-                    <button onClick={() => {if(!this.sim.isRunnning){this.sim.insertionSort()}}}>Insertion Sort</button>
-                    <button onClick={() => {if(!this.sim.isRunnning){this.sim.selectionSort()}}}>Selection Sort</button>
+                    <button onClick={() => {if(!this.sim.isRunnning && !this.sim.isSorted()){this.sim.bubbleSort()}}}>Bubble Sort</button>
+                    <button onClick={() => {if(!this.sim.isRunnning && !this.sim.isSorted()){this.sim.mergeSort()}}}>Merge Sort</button>
+                    <button onClick={() => {if(!this.sim.isRunnning && !this.sim.isSorted()){this.sim.quickSort()}}}>Quick Sort</button>
+                    <button onClick={() => {if(!this.sim.isRunnning && !this.sim.isSorted()){document.querySelector('.death-div').style.display = 'flex';}}}>Bogo Sort</button>
+                    <button onClick={() => {if(!this.sim.isRunnning && !this.sim.isSorted()){this.sim.insertionSort()}}}>Insertion Sort</button>
+                    <button onClick={() => {if(!this.sim.isRunnning && !this.sim.isSorted()){this.sim.selectionSort()}}}>Selection Sort</button>
                 </div>
 
                 <div className='visual'>
