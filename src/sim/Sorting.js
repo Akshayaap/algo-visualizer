@@ -27,11 +27,9 @@ class Sorting {
     isSorted() {
         for(let i=0; i < this.array.length; i++){
             if(this.array[i] > this.array[i+1]){
-                console.log('not sorted')
                 return false;
             }
         }
-        console.log('sorted')
         return true;
     }
 
