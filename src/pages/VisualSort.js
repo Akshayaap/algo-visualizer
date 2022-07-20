@@ -37,8 +37,8 @@ class VisualSort extends Component {
                     {
                         this.sim.array.map((element, index) => {
                             return (
-                                <div id={`bar-${index}`} className='array-bar' key={index}>
-                                </div>);
+                                    <div id={`bar-${index}`} className='array-bar' key={index}>
+                                    </div>);
                         })
                     }
                 </div>
