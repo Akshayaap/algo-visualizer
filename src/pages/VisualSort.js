@@ -33,6 +33,7 @@ class VisualSort extends Component {
                     <button onClick={() => {if(!this.sim.isRunnning){this.sim.insertionSort()}}}>Insertion Sort</button>
                     <button onClick={() => {if(!this.sim.isRunnning){this.sim.selectionSort()}}}>Selection Sort</button>
                 </div>
+                
                 <div className='visual'>
                     {
                         this.sim.array.map((element, index) => {
