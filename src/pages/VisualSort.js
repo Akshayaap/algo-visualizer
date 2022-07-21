@@ -32,6 +32,9 @@ class VisualSort extends Component {
                     <button onClick={() => {if(!this.sim.isRunnning && !this.sim.isSorted()){document.querySelector('.death-div').style.display = 'flex';}}}>Bogo Sort</button>
                     <button onClick={() => {if(!this.sim.isRunnning && !this.sim.isSorted()){this.sim.insertionSort()}}}>Insertion Sort</button>
                     <button onClick={() => {if(!this.sim.isRunnning && !this.sim.isSorted()){this.sim.selectionSort()}}}>Selection Sort</button>
+                    <button onClick={() => {if(!this.sim.isRunnning && !this.sim.isSorted()){this.sim.stalinSort()}}}>Stalin Sort</button>
+                    <button onClick={() => {if(!this.sim.isRunnning && !this.sim.isSorted()){this.sim.oddEvenSort()}}}>Odd-Even Sort</button>
+                    
                 </div>
 
                 <div className='visual'>
