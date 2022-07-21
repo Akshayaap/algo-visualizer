@@ -280,6 +280,33 @@ class Sorting {
         }
         this.isRunnning = 0;
     }
+
+    async oddEvenSort(){
+        this.isRunnning = true;
+        var sorted = false;
+        while (!sorted) {
+            sorted = true;
+            for (var i = 1; i < this.size - 1; i += 2) {
+                await sleep(25);
+                if (this.array[i] > this.array[i + 1]) {
+                    [this.array[i], this.array[i+1]] = [this.array[i+1], this.array[i]];
+                    this.elements[i].style.height = this.array[i] + 'px';
+                    this.elements[i+1].style.height = this.array[i+1] + 'px';
+                    sorted = false;
+                }
+            }
+
+            for (var i = 0; i < this.size - 1; i += 2) {
+                await sleep(25);
+                if (this.array[i] > this.array[i + 1]) {
+                    [this.array[i], this.array[i+1]] = [this.array[i+1], this.array[i]];
+                    this.elements[i].style.height = this.array[i] + 'px';
+                    this.elements[i+1].style.height = this.array[i+1] + 'px';
+                    sorted = false;
+                }
+            }
+        }
+    }
 }
 
 
