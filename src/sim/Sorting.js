@@ -287,23 +287,31 @@ class Sorting {
         while (!sorted) {
             sorted = true;
             for (var i = 1; i < this.size - 1; i += 2) {
-                await sleep(25);
                 if (this.array[i] > this.array[i + 1]) {
                     [this.array[i], this.array[i+1]] = [this.array[i+1], this.array[i]];
                     this.elements[i].style.height = this.array[i] + 'px';
                     this.elements[i+1].style.height = this.array[i+1] + 'px';
+                    this.elements[i].style.backgroundColor = '#00ff00';
+                    this.elements[i+1].style.backgroundColor = '#00ff00';
                     sorted = false;
                 }
+                await sleep(10);
+                this.elements[i].style.backgroundColor = '#00ffff';
+                this.elements[i+1].style.backgroundColor = '#00ffff';
             }
 
             for (var i = 0; i < this.size - 1; i += 2) {
-                await sleep(25);
                 if (this.array[i] > this.array[i + 1]) {
                     [this.array[i], this.array[i+1]] = [this.array[i+1], this.array[i]];
                     this.elements[i].style.height = this.array[i] + 'px';
                     this.elements[i+1].style.height = this.array[i+1] + 'px';
+                    this.elements[i].style.backgroundColor = '#00ff00';
+                    this.elements[i+1].style.backgroundColor = '#00ff00';
                     sorted = false;
                 }
+                await sleep(10);
+                this.elements[i].style.backgroundColor = '#00ffff';
+                this.elements[i+1].style.backgroundColor = '#00ffff';
             }
         }
     }
