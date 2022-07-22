@@ -248,7 +248,6 @@ class Sorting {
         this.isRunnning = 0;
     }
 
-
     //selection sort with await function
     async selectionSort() {
         this.isRunnning = 1;
@@ -281,17 +280,17 @@ class Sorting {
         this.isRunnning = 0;
     }
 
+    //stalin sort with await function
     async stalinSort(){
         this.isRunnning = true;
         
-        console.log(this.array)
         for(var i = 0; i < this.size-1;){
             if(this.array[i] > this.array[i+1]){
                 this.elements[i+1].style.backgroundColor = '#ff0000';
                 await sleep(100);
                 this.elements[i+1].remove();
+                this.elements.splice(i+1,1);
                 this.array.splice(i+1,1);
-                this.elements[i+1].style.backgroundColor = '#00000';
             } else {
                 i++;
             }
