@@ -5,7 +5,7 @@ import { Sorting } from '../sim/Sorting';
 class VisualSort extends Component {
     constructor(props) {
         super(props)
-        this.size = 50;
+        this.size = 100;
         this.sim = new Sorting(this.size);
         // console.log(this.size);
     }
