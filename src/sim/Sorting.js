@@ -248,7 +248,6 @@ class Sorting {
         this.isRunnning = 0;
     }
 
-
     //selection sort with await function
     async selectionSort() {
         this.isRunnning = 1;
@@ -280,6 +279,63 @@ class Sorting {
         }
         this.isRunnning = 0;
     }
+
+    //stalin sort with await function
+    async stalinSort(){
+        this.isRunnning = true;
+        
+        for(var i = 0; i < this.size-1;){
+            if(this.array[i] > this.array[i+1]){
+                this.elements[i+1].style.backgroundColor = '#ff0000';
+                await sleep(100);
+                this.elements[i+1].remove();
+                this.elements.splice(i+1,1);
+                this.array.splice(i+1,1);
+            } else {
+                i++;
+            }
+        }
+
+        this.isRunnning = false;
+    }
+
+    // odd-even sort 
+    async oddEvenSort(){
+        this.isRunnning = true;
+        var sorted = false;
+        while (!sorted) {
+            sorted = true;
+            for (var i = 1; i < this.size - 1; i += 2) {
+                if (this.array[i] > this.array[i + 1]) {
+                    [this.array[i], this.array[i+1]] = [this.array[i+1], this.array[i]];
+                    this.elements[i].style.height = this.array[i] + 'px';
+                    this.elements[i+1].style.height = this.array[i+1] + 'px';
+                    this.elements[i].style.backgroundColor = '#00ff00';
+                    this.elements[i+1].style.backgroundColor = '#00ff00';
+                    sorted = false;
+                }
+                await sleep(10);
+                this.elements[i].style.backgroundColor = '#00ffff';
+                this.elements[i+1].style.backgroundColor = '#00ffff';
+            }
+
+            for (var i = 0; i < this.size - 1; i += 2) {
+                if (this.array[i] > this.array[i + 1]) {
+                    [this.array[i], this.array[i+1]] = [this.array[i+1], this.array[i]];
+                    this.elements[i].style.height = this.array[i] + 'px';
+                    this.elements[i+1].style.height = this.array[i+1] + 'px';
+                    this.elements[i].style.backgroundColor = '#00ff00';
+                    this.elements[i+1].style.backgroundColor = '#00ff00';
+                    sorted = false;
+                }
+                await sleep(10);
+                this.elements[i].style.backgroundColor = '#00ffff';
+                this.elements[i+1].style.backgroundColor = '#00ffff';
+            }
+        }
+        this.isRunnning = false;
+    }
+
 }
 
 
