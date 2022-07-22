@@ -12,6 +12,7 @@ class VisualSort extends Component {
 
     componentDidMount() {
         this.sim.getElements();
+        console.log('x')
     }
 
     render() {

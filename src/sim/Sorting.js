@@ -291,7 +291,6 @@ class Sorting {
                 await sleep(100);
                 this.elements[i+1].remove();
                 this.array.splice(i+1,1);
-                console.log(this.array)
                 this.elements[i+1].style.backgroundColor = '#00000';
             } else {
                 i++;
