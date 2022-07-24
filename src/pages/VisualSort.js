@@ -34,9 +34,11 @@ class VisualSort extends Component {
                     <button onClick={() => {if(!this.sim.isRunnning && !this.sim.isSorted()){this.sim.selectionSort()}}}>Selection Sort</button>
                     <button onClick={() => {if(!this.sim.isRunnning && !this.sim.isSorted()){this.sim.stalinSort()}}}>Stalin Sort</button>
                     <button onClick={() => {if(!this.sim.isRunnning && !this.sim.isSorted()){this.sim.oddEvenSort()}}}>Odd-Even Sort</button>
-                    <div className='barSlider'>
-                        <input type="range" min="1" max="100" value="50" class="slider" id="myRange" />
+                    <div className="slidecontainer">
+                        <p>Custom range slider:</p>
+                        <input type="range" min="1" max="100" className="slider" id="myRange" onChange={()=>console.log(this.value)}/>
                     </div>
+                    {/* <input type="range" /> */}
                 </div>
 
                 <div className='visual'>
