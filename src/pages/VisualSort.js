@@ -5,9 +5,8 @@ import { Sorting } from '../sim/Sorting';
 class VisualSort extends Component {
     constructor(props) {
         super(props)
-        this.size = 100;
+        this.size = 50;
         this.sim = new Sorting(this.size);
-        // console.log(this.size);
         this.setBar = this.setBar.bind(this);
     }
 
@@ -37,7 +36,7 @@ class VisualSort extends Component {
                     <input type="range" id='barCountSlider' min={0} max={50} onChange={()=>this.setBar()}/>
                 </div>
                 <div className='control'>
-                    <button onClick={() => {if(!this.sim.isRunnning){this.sim.shuffle()}}}>Generate</button>
+                    <button onClick={() => {if(!this.sim.isRunnning){this.sim.shuffle(this.size)}}}>Generate</button>
                     <button onClick={() => {if(!this.sim.isRunnning && !this.sim.isSorted()){this.sim.bubbleSort()}}}>Bubble Sort</button>
                     <button onClick={() => {if(!this.sim.isRunnning && !this.sim.isSorted()){this.sim.mergeSort()}}}>Merge Sort</button>
                     <button onClick={() => {if(!this.sim.isRunnning && !this.sim.isSorted()){this.sim.quickSort()}}}>Quick Sort</button>

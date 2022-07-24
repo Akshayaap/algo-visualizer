@@ -48,7 +48,8 @@ class Sorting {
         }
     }
 
-    shuffle() {
+    shuffle(size) {
+        this.size = size;
         this.generateArray();
         for (let i = 0; i < this.size; i++) {
             this.elements[i].style.height = this.array[i] + 'px';
