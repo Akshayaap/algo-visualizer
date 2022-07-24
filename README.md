@@ -8,6 +8,8 @@ A repo to visualize algorithms
 4. Bogo Sort
 5. Insertion Sort
 6. Selection Sort
+7. Stalin Sort
+8. Odd-Even Sort
 
 ## Todo:
 https://en.wikipedia.org/wiki/Sorting_algorithm
