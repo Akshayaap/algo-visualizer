@@ -34,7 +34,9 @@ class VisualSort extends Component {
                     <button onClick={() => {if(!this.sim.isRunnning && !this.sim.isSorted()){this.sim.selectionSort()}}}>Selection Sort</button>
                     <button onClick={() => {if(!this.sim.isRunnning && !this.sim.isSorted()){this.sim.stalinSort()}}}>Stalin Sort</button>
                     <button onClick={() => {if(!this.sim.isRunnning && !this.sim.isSorted()){this.sim.oddEvenSort()}}}>Odd-Even Sort</button>
-                    
+                    <div className='barSlider'>
+                        <input type="range" min="1" max="100" value="50" class="slider" id="myRange" />
+                    </div>
                 </div>
 
                 <div className='visual'>
