@@ -16,8 +16,9 @@ class VisualSort extends Component {
     }
 
     setBar = () => {
-        let value = document.querySelector('#barCount').value;
+        let value = document.querySelector('#barCountSlider').value;
         this.size = value;
+        document.querySelector('#barCountValue').innerHTML = 'Set Bar Count: '+value;
     }
 
     render() {
@@ -32,8 +33,8 @@ class VisualSort extends Component {
                     </div>
                 </center>
                 <div>
-                    <span>Set Bar Count:</span>&nbsp;&nbsp;
-                    <input type="range" id='barCount' onChange={()=>this.setBar()}/>
+                    <p id='barCountValue'>Set Bar Count: 50</p>
+                    <input type="range" id='barCountSlider' min={0} max={50} onChange={()=>this.setBar()}/>
                 </div>
                 <div className='control'>
                     <button onClick={() => {if(!this.sim.isRunnning){this.sim.shuffle()}}}>Generate</button>

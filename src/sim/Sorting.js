@@ -36,7 +36,7 @@ class Sorting {
     generateArray() {
         this.array = [];
         for (let i = 0; i < this.size; i++) {
-            this.array.push(Math.floor(Math.random() * 800) + 1);
+            this.array.push(Math.floor(Math.random() * 500) + 1);
         }
     }
 
