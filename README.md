@@ -18,7 +18,7 @@ https://en.wikipedia.org/wiki/Sorting_algorithm
 3. `npm start`
 
 ## Wanna help?
-- Pull an request
+- Pull a request
 
 ## Found bug or Got suggestion?
 - Raise an issue!
