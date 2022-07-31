@@ -55,6 +55,10 @@ class Sorting {
             this.elements[i].style.height = this.array[i] + 'px';
             this.elements[i].style.backgroundColor = '#00ffff';
         }
+        
+        for (let i = this.size; i < 50; i++) {
+            this.elements[i].style.height = '0px';
+        }
     }
 
     async bubbleSort() {

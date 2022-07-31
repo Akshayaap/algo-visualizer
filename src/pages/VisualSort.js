@@ -4,7 +4,7 @@ import { Sorting } from '../sim/Sorting';
 
 class VisualSort extends Component {
     constructor(props) {
-        super(props)
+        super(props);
         this.size = 50;
         this.sim = new Sorting(this.size);
         this.setBar = this.setBar.bind(this);
