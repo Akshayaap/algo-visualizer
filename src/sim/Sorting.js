@@ -36,7 +36,7 @@ class Sorting {
     generateArray() {
         this.array = [];
         for (let i = 0; i < this.size; i++) {
-            this.array.push(Math.floor(Math.random() * 800) + 1);
+            this.array.push(Math.floor(Math.random() * 500) + 1);
         }
     }
 
@@ -48,11 +48,16 @@ class Sorting {
         }
     }
 
-    shuffle() {
+    shuffle(size) {
+        this.size = size;
         this.generateArray();
         for (let i = 0; i < this.size; i++) {
             this.elements[i].style.height = this.array[i] + 'px';
             this.elements[i].style.backgroundColor = '#00ffff';
+        }
+        
+        for (let i = this.size; i < 50; i++) {
+            this.elements[i].style.height = '0px';
         }
     }
 
